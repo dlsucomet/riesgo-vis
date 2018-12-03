@@ -10,9 +10,9 @@ export default class Map extends React.Component {
     super(props);
 
     this.state = {
-      lng: 121.103041,
-      lat: 14.647953,
-      zoom: 14,
+      lat: 14.643320762156335,
+      lng: 121.10719934846895,
+      zoom: 12.5,
     };
   }
 
@@ -35,18 +35,20 @@ export default class Map extends React.Component {
     this.map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
     this.map.on('style.load', () => {
-      // this.map.addLayer({
-      //   id: 'hazard5',
-      //   type: 'fill',
-      //   source: {
-      //     type: 'vector',
-      //     data: 'mapbox://unissechua.bpd45j3n',
-      //   },
-      //   'source-layer': 'FHM5yrs_lonlat-9ocb9v',
-      //   paint: {
-      //     'fill-color': '#fafafa',
-      //   },
-      // });
+      this.map.addSource('marikinabasemap', {
+        type: 'geojson',
+        data: 'data/marikina.geojson',
+      });
+
+      this.map.addLayer({
+        id: 'base',
+        type: 'line',
+        source: 'marikinabasemap',
+        paint: {
+          'line-color': '#8bc34a',
+          'line-width': 2,
+        },
+      });
 
       // this.map.addLayer({
       //   id: 'clusters',
@@ -127,6 +129,11 @@ export default class Map extends React.Component {
     //
     //   this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
     // });
+
+    this.map.on('move', (e) => {
+      console.log(this.map.getZoom());
+      console.log(this.map.getCenter());
+    })
   }
 
   componentWillReceiveProps(nextProps) {
