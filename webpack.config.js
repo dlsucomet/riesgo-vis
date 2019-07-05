@@ -109,12 +109,12 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'data/',
-        to: 'data/',
-      },
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: 'data/',
+    //     to: 'data/',
+    //   },
+    // ]),
     // new BundleAnalyzerPlugin()
   ],
 };

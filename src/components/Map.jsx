@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import Grid from '@material-ui/core/Grid';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiaXdzc3R1YXJ0IiwiYSI6InNaNzMzVXMifQ.OFDL1zM5OjRUHcL_Y5htCA';
+mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class Map extends React.Component {
 
   componentDidMount() {
     const {
-      lng, lat, zoom
+      lng, lat, zoom,
     } = this.state;
 
     // Container to put React generated content in.
@@ -26,27 +26,73 @@ export default class Map extends React.Component {
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: `mapbox://styles/mapbox/dark-v9`,
+      style: 'mapbox://styles/brianehenyo/cjxkcz3mw46z81crr7sbh3bpz',
       center: [lng, lat],
       zoom,
-      minZoom: 4,
+      minZoom: 12,
+      maxZoom: 15,
     });
 
     this.map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
     this.map.on('style.load', () => {
-      this.map.addSource('marikinabasemap', {
-        type: 'geojson',
-        data: 'data/marikina.geojson',
+      this.map.addSource('riesgo', {
+        type: 'vector',
+        url: 'mapbox://unissechua.8kcfu1fc',
+      });
+
+      this.map.addSource('evacuation', {
+        type: 'vector',
+        url: 'mapbox://unissechua.cjxpvu8a80kxh2nlktq629gnz-5ufkm',
       });
 
       this.map.addLayer({
-        id: 'base',
-        type: 'line',
-        source: 'marikinabasemap',
+        id: 'layer1',
+        type: 'fill',
+        source: 'riesgo',
+        'source-layer': 'riesgo',
         paint: {
-          'line-color': '#8bc34a',
-          'line-width': 2,
+          'fill-color': {
+            property: 'mcda005yrs',
+            stops: [
+              [1, '#ffffcc'],
+              [2, '#c7e9b4'],
+              [3, '#7fcdbb'],
+              [4, '#41b6c4'],
+              [5, '#1d91c0'],
+            ],
+          },
+        },
+      }, 'waterway-label');
+
+      this.map.addLayer({
+        id: 'evac_center',
+        type: 'circle',
+        source: 'evacuation',
+        'source-layer': 'marikina_evac_centroids',
+        paint: {
+          'circle-opacity': 0.7,
+          'circle-stroke-color': '#888888',
+          'circle-stroke-width': 1,
+          'circle-radius': {
+            property: 'area',
+            stops: [
+              [{ zoom: 12, value: 500 }, 5],
+              [{ zoom: 12, value: 19000 }, 10],
+              [{ zoom: 13.5, value: 500 }, 5],
+              [{ zoom: 13.5, value: 19000 }, 15],
+              [{ zoom: 15, value: 500 }, 10],
+              [{ zoom: 15, value: 19000 }, 30],
+            ],
+          },
+          'circle-color': [
+            'match',
+            ['get', 'amenity'],
+            'school', '#fbb03b',
+            'community_centre', '#223b53',
+            'basketball_court', '#e55e5e',
+            /* other */ '#ccc',
+          ],
         },
       });
 
@@ -129,11 +175,6 @@ export default class Map extends React.Component {
     //
     //   this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
     // });
-
-    this.map.on('move', (e) => {
-      console.log(this.map.getZoom());
-      console.log(this.map.getCenter());
-    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -188,20 +229,20 @@ export default class Map extends React.Component {
    * @param {object} features - queried features from the map
    * @public
    */
-  setTooltip(features) {
-    if (features.length) {
-      ReactDOM.render(
-        React.createElement(
-          MapCard, {
-            features,
-          },
-        ),
-        this.tooltipContainer,
-      );
-    } else {
-      ReactDOM.unmountComponentAtNode(this.tooltipContainer);
-    }
-  }
+  // setTooltip(features) {
+  //   if (features.length) {
+  //     ReactDOM.render(
+  //       React.createElement(
+  //         MapCard, {
+  //           features,
+  //         },
+  //       ),
+  //       this.tooltipContainer,
+  //     );
+  //   } else {
+  //     ReactDOM.unmountComponentAtNode(this.tooltipContainer);
+  //   }
+  // }
   //
   // updateStyle() {
   //   // const { circleColor, strokeColor } = this.state.colors;
