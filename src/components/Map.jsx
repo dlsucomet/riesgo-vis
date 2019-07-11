@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
-import Grid from '@material-ui/core/Grid';
+import { chapters } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
@@ -31,9 +31,11 @@ export default class Map extends React.Component {
       zoom,
       minZoom: 12,
       maxZoom: 15,
+      pitch: 45,
+      bearing: -17.6,
     });
 
-    this.map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+    this.map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
     this.map.on('style.load', () => {
       this.map.addSource('riesgo', {
@@ -46,30 +48,64 @@ export default class Map extends React.Component {
         url: 'mapbox://unissechua.cjxpvu8a80kxh2nlktq629gnz-5ufkm',
       });
 
+      this.map.addSource('landelevation', {
+        type: 'vector',
+        url: 'mapbox://unissechua.54ft2aw9',
+      });
+
       this.map.addLayer({
-        id: 'layer1',
+        id: 'landelevation3d',
+        type: 'fill-extrusion',
+        source: 'landelevation',
+        'source-layer': 'landelevation_100x100',
+        layout: {
+          visibility: 'visible',
+        },
+        paint: {
+          'fill-extrusion-color': {
+            property: 'value',
+            stops: [
+              [2, '#ffffcc'],
+              [17, '#c7e9b4'],
+              [35, '#7fcdbb'],
+              [52, '#41b6c4'],
+              [70, '#1d91c0'],
+            ],
+          },
+          'fill-extrusion-height': ['*', 10, ['number', ['get', 'value'], 1]],
+        },
+      }, 'waterway');
+
+      this.map.addLayer({
+        id: 'flood',
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
+        layout: {
+          visibility: 'none',
+        },
         paint: {
           'fill-color': {
-            property: 'mcda005yrs',
+            property: 'fhm005yrs',
             stops: [
-              [1, '#ffffcc'],
-              [2, '#c7e9b4'],
-              [3, '#7fcdbb'],
-              [4, '#41b6c4'],
-              [5, '#1d91c0'],
+              [1, '#e31a1c'],
+              [2, '#fd8d3c'],
+              [3, '#fecc5c'],
+              [4, '#ffffb2'],
             ],
           },
+          'fill-opacity': 0.5,
         },
-      }, 'waterway-label');
+      }, 'waterway');
 
       this.map.addLayer({
         id: 'evac_center',
         type: 'circle',
         source: 'evacuation',
         'source-layer': 'marikina_evac_centroids',
+        layout: {
+          visibility: 'none',
+        },
         paint: {
           'circle-opacity': 0.7,
           'circle-stroke-color': '#888888',
@@ -95,53 +131,6 @@ export default class Map extends React.Component {
           ],
         },
       });
-
-      // this.map.addLayer({
-      //   id: 'clusters',
-      //   type: 'circle',
-      //   source: 'schools',
-      //   filter: ['has', 'point_count'],
-      //   paint: {
-      //     // Use step expressions (https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-      //     // with three steps to implement three types of circles:
-      //     //   * Blue, 20px circles when point count is less than 100
-      //     //   * Yellow, 30px circles when point count is between 100 and 750
-      //     //   * Pink, 40px circles when point count is greater than or equal to 750
-      //     'circle-color': [
-      //       'step',
-      //       ['get', 'point_count'],
-      //       '#FFCCBC',
-      //       250,
-      //       '#FF8A65',
-      //       500,
-      //       '#FF5722',
-      //       1000,
-      //       '#BF360C',
-      //     ],
-      //     'circle-radius': [
-      //       'step',
-      //       ['get', 'point_count'],
-      //       15,
-      //       250,
-      //       20,
-      //       800,
-      //       25,
-      //     ],
-      //     'circle-opacity': 0.75,
-      //   },
-      // });
-      //
-      // this.map.addLayer({
-      //   id: 'cluster-count',
-      //   type: 'symbol',
-      //   source: 'schools',
-      //   filter: ['has', 'point_count'],
-      //   layout: {
-      //     'text-field': '{point_count_abbreviated}',
-      //     'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      //     'text-size': 11,
-      //   },
-      // });
     });
 
     // this.tooltipContainer = document.createElement('div');
@@ -178,6 +167,17 @@ export default class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { chapterName } = this.props;
+
+    if (nextProps.chapterName !== chapterName) {
+      const { layers, position } = chapters[nextProps.chapterName];
+
+      layers.forEach((data) => {
+        this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
+      });
+
+      this.map.flyTo(position);
+    }
     // const { theme, year, calamity, isEvacCenter } = this.props;
     //
     // if (nextProps.theme && nextProps.theme !== theme) {
@@ -254,14 +254,18 @@ export default class Map extends React.Component {
 
   render() {
     const mapStyle = {
-      height: '100vh',
-      width: '100vw',
+      // height: '100vh',
+      // width: '100vw',
+      position: 'fixed',
+      width: '70%',
+      left: '30%',
+      top: 0,
+      bottom: 0,
     };
 
     return (
-      <Grid container>
-        <div style={mapStyle} ref={(el) => { this.mapContainer = el; }} />
-      </Grid>
+      <div style={mapStyle} ref={(el) => { this.mapContainer = el; }} />
+      // <Legend />
     );
   }
 }

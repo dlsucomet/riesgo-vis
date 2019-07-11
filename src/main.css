@@ -2,3 +2,26 @@ body {
   margin: 0;
   background-color: #fafafa;
 }
+
+#features {
+  width: 30%;
+  margin-right: 70%;
+  font-family: sans-serif;
+  overflow-y: scroll;
+  background-color: #fafafa;
+}
+section {
+  padding:  25px 50px;
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  opacity: 0.5;
+  font-size: 13px;
+  min-height: 80vh;
+}
+section.active {
+  opacity: 1;
+}
+section:last-child {
+  border-bottom: none;
+  margin-bottom: 200px;
+}
