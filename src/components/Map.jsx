@@ -53,6 +53,11 @@ export default class Map extends React.Component {
         url: 'mapbox://unissechua.54ft2aw9',
       });
 
+      this.map.addSource('radius', {
+        type: 'vector',
+        url: 'mapbox://unissechua.cjxyxmuw109vi2tp7nn20ic5a-83o6p',
+      });
+
       this.map.addLayer({
         id: 'landelevation3d',
         type: 'fill-extrusion',
@@ -106,6 +111,26 @@ export default class Map extends React.Component {
           }
         },
       }, 'waterway');
+
+      this.map.addLayer({
+        id: 'radius',
+        type: 'fill',
+        source: 'radius',
+        'source-layer': 'radius',
+        // layout: {
+        //   visibility: 'none',
+        // },
+        paint: {
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
+          // 'circle-stroke-color': '#888888',
+          // 'circle-stroke-width': 1,
+          'fill-color': '#ffffff',
+        },
+      });
 
       this.map.addLayer({
         id: 'evac_center',

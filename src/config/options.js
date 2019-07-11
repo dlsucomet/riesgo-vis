@@ -46,6 +46,10 @@ const chapters = {
         opacity: 0,
       },
       {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
         id: 'roaddistance',
         opacity: 0
       },
@@ -74,6 +78,10 @@ const chapters = {
         opacity: 0,
       },
       {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
         id: 'roaddistance',
         opacity: 0
       },
@@ -95,11 +103,15 @@ const chapters = {
       },
       {
         id: 'evac_center',
-        opacity: 0,
+        opacity: 1,
       },
       {
         id: 'population',
         opacity: 1,
+      },
+      {
+        id: 'radius',
+        opacity: 0.3,
       },
       {
         id: 'roaddistance',
@@ -127,6 +139,10 @@ const chapters = {
       },
       {
         id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
         opacity: 0,
       },
       {
