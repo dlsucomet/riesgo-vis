@@ -58,9 +58,9 @@ export default class Map extends React.Component {
         type: 'fill-extrusion',
         source: 'landelevation',
         'source-layer': 'landelevation_100x100',
-        layout: {
-          visibility: 'visible',
-        },
+        // layout: {
+        //   visibility: 'visible',
+        // },
         paint: {
           'fill-extrusion-color': {
             property: 'value',
@@ -73,6 +73,11 @@ export default class Map extends React.Component {
             ],
           },
           'fill-extrusion-height': ['*', 10, ['number', ['get', 'value'], 1]],
+          'fill-extrusion-opacity': 1,
+          'fill-extrusion-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          }
         },
       }, 'waterway');
 
@@ -81,9 +86,9 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
-        layout: {
-          visibility: 'none',
-        },
+        // layout: {
+        //   visibility: 'none',
+        // },
         paint: {
           'fill-color': {
             property: 'fhm005yrs',
@@ -94,7 +99,11 @@ export default class Map extends React.Component {
               [4, '#ffffb2'],
             ],
           },
-          'fill-opacity': 0.5,
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          }
         },
       }, 'waterway');
 
@@ -103,13 +112,17 @@ export default class Map extends React.Component {
         type: 'circle',
         source: 'evacuation',
         'source-layer': 'marikina_evac_centroids',
-        layout: {
-          visibility: 'none',
-        },
+        // layout: {
+        //   visibility: 'none',
+        // },
         paint: {
-          'circle-opacity': 0.7,
-          'circle-stroke-color': '#888888',
-          'circle-stroke-width': 1,
+          'circle-opacity': 0,
+          'circle-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
+          // 'circle-stroke-color': '#888888',
+          // 'circle-stroke-width': 1,
           'circle-radius': {
             property: 'area',
             stops: [
@@ -121,14 +134,15 @@ export default class Map extends React.Component {
               [{ zoom: 15, value: 19000 }, 30],
             ],
           },
-          'circle-color': [
-            'match',
-            ['get', 'amenity'],
-            'school', '#fbb03b',
-            'community_centre', '#223b53',
-            'basketball_court', '#e55e5e',
-            /* other */ '#ccc',
-          ],
+          'circle-color': '#000000',
+        //   'circle-color': [
+        //     'match',
+        //     ['get', 'amenity'],
+        //     'school', '#fbb03b',
+        //     'community_centre', '#223b53',
+        //     'basketball_court', '#e55e5e',
+        //     /* other */ '#ccc',
+        //   ],
         },
       });
 
@@ -137,9 +151,9 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
-        layout: {
-          visibility: 'none',
-        },
+        // layout: {
+        //   visibility: 'none',
+        // },
         paint: {
           'fill-color': {
             property: 'population',
@@ -150,7 +164,40 @@ export default class Map extends React.Component {
               [0.03, '#0c2c84'],
             ],
           },
-          'fill-opacity': 0.8,
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
+        },
+      }, 'waterway');
+
+      this.map.addLayer({
+        id: 'roaddistance',
+        type: 'fill',
+        source: 'riesgo',
+        'source-layer': 'riesgo',
+        // layout: {
+        //   visibility: 'none',
+        // },
+        paint: {
+          'fill-color': {
+            property: 'roaddistance',
+            stops: [
+              [150, '#ffffcc'],
+              [3000, '#c7e9b4'],
+              [6000, '#7fcdbb'],
+              [18500, '#41b6c4'],
+              [31000, '#1d91c0'],
+              [34000, '#225ea8'],
+              [37000, '#0c2c84'],
+            ],
+          },
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
         },
       }, 'waterway');
     });
@@ -196,10 +243,16 @@ export default class Map extends React.Component {
         const { layers, position } = chapters[nextProps.chapterName];
 
         layers.forEach((data) => {
-          this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
+          // this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
+          const layer = this.map.getLayer(data.id);
+
+          if (layer !== undefined) {
+            const layerType = layer.type;
+            this.map.setPaintProperty(data.id, `${layerType}-opacity`, data.opacity);
+          }
         });
 
-        this.map.flyTo(position);
+        this.map.easeTo(position);
       }
     }
     // const { theme, year, calamity, isEvacCenter } = this.props;

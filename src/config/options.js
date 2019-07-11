@@ -3,19 +3,23 @@ const chapters = {
     layers: [
       {
         id: 'landelevation3d',
-        visibility: 'visible',
+        opacity: 1,
       },
       {
         id: 'flood',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'evac_center',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'population',
-        visibility: 'none',
+        opacity: 0,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0
       },
     ],
     position: {
@@ -27,19 +31,23 @@ const chapters = {
     layers: [
       {
         id: 'landelevation3d',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'flood',
-        visibility: 'visible',
+        opacity: 0.7,
       },
       {
         id: 'evac_center',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'population',
-        visibility: 'none',
+        opacity: 0,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0
       },
     ],
     position: {
@@ -51,19 +59,23 @@ const chapters = {
     layers: [
       {
         id: 'landelevation3d',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'flood',
-        visibility: 'visible',
+        opacity: 0.7,
       },
       {
         id: 'evac_center',
-        visibility: 'visible',
+        opacity: 1,
       },
       {
         id: 'population',
-        visibility: 'none',
+        opacity: 0,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0
       },
     ],
     position: {
@@ -75,19 +87,23 @@ const chapters = {
     layers: [
       {
         id: 'landelevation3d',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'flood',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'evac_center',
-        visibility: 'none',
+        opacity: 0,
       },
       {
         id: 'population',
-        visibility: 'visible',
+        opacity: 1,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0
       },
     ],
     position: {
@@ -96,7 +112,28 @@ const chapters = {
     },
   },
   accessibility: {
-
+    layers: [
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'evac_center',
+        opacity: 1,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0.9,
+      },
+    ],
   },
 };
 
