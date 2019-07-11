@@ -131,6 +131,28 @@ export default class Map extends React.Component {
           ],
         },
       });
+
+      this.map.addLayer({
+        id: 'population',
+        type: 'fill',
+        source: 'riesgo',
+        'source-layer': 'riesgo',
+        layout: {
+          visibility: 'none',
+        },
+        paint: {
+          'fill-color': {
+            property: 'population',
+            stops: [
+              [0, '#ffffcc'],
+              [0.01, '#7fcdbb'],
+              [0.02, '#1d91c0'],
+              [0.03, '#0c2c84'],
+            ],
+          },
+          'fill-opacity': 0.8,
+        },
+      }, 'waterway');
     });
 
     // this.tooltipContainer = document.createElement('div');
@@ -169,14 +191,16 @@ export default class Map extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { chapterName } = this.props;
 
-    if (nextProps.chapterName !== chapterName) {
-      const { layers, position } = chapters[nextProps.chapterName];
+    if (this.map.isStyleLoaded()) {
+      if (nextProps.chapterName !== chapterName) {
+        const { layers, position } = chapters[nextProps.chapterName];
 
-      layers.forEach((data) => {
-        this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
-      });
+        layers.forEach((data) => {
+          this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
+        });
 
-      this.map.flyTo(position);
+        this.map.flyTo(position);
+      }
     }
     // const { theme, year, calamity, isEvacCenter } = this.props;
     //

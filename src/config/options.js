@@ -13,6 +13,10 @@ const chapters = {
         id: 'evac_center',
         visibility: 'none',
       },
+      {
+        id: 'population',
+        visibility: 'none',
+      },
     ],
     position: {
       pitch: 45,
@@ -31,6 +35,10 @@ const chapters = {
       },
       {
         id: 'evac_center',
+        visibility: 'none',
+      },
+      {
+        id: 'population',
         visibility: 'none',
       },
     ],
@@ -53,6 +61,10 @@ const chapters = {
         id: 'evac_center',
         visibility: 'visible',
       },
+      {
+        id: 'population',
+        visibility: 'none',
+      },
     ],
     position: {
       pitch: 0,
@@ -60,7 +72,28 @@ const chapters = {
     },
   },
   population: {
-
+    layers: [
+      {
+        id: 'landelevation3d',
+        visibility: 'none',
+      },
+      {
+        id: 'flood',
+        visibility: 'none',
+      },
+      {
+        id: 'evac_center',
+        visibility: 'none',
+      },
+      {
+        id: 'population',
+        visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+    },
   },
   accessibility: {
 
