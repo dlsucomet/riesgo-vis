@@ -16,7 +16,7 @@ section {
   border-bottom: 1px solid #ddd;
   opacity: 0.5;
   font-size: 13px;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 section.active {
   opacity: 1;

@@ -121,6 +121,7 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
+      duration: 800,
     },
   },
   accessibility: {
