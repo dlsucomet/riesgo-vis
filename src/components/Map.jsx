@@ -31,8 +31,8 @@ export default class Map extends React.Component {
       zoom,
       minZoom: 12,
       maxZoom: 15,
-      pitch: 45,
-      bearing: -17.6,
+      pitch: 0,
+      bearing: 0,
     });
 
     this.map.addControl(new mapboxgl.NavigationControl(), 'top-right');
@@ -45,7 +45,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('evacuation', {
         type: 'vector',
-        url: 'mapbox://unissechua.cjxpvu8a80kxh2nlktq629gnz-5ufkm',
+        url: 'mapbox://unissechua.9hp5dege',
       });
 
       this.map.addSource('landelevation', {
@@ -58,14 +58,32 @@ export default class Map extends React.Component {
         url: 'mapbox://unissechua.cjxyxmuw109vi2tp7nn20ic5a-83o6p',
       });
 
+      this.map.addSource('buildings', {
+        type: 'vector',
+        url: 'mapbox://unissechua.aauphgra',
+      });
+
+      this.map.addSource('boundary', {
+        type: 'geojson',
+        data: 'data/marikina_boundary.geojson',
+      });
+
+      this.map.addLayer({
+        id: 'boundary',
+        type: 'fill',
+        source: 'boundary',
+        paint: {
+          'fill-color': '#c46806',
+          // 'line-width': 4,
+          'fill-opacity': 0.5,
+        },
+      }, 'waterway');
+
       this.map.addLayer({
         id: 'landelevation3d',
         type: 'fill-extrusion',
         source: 'landelevation',
         'source-layer': 'landelevation_100x100',
-        // layout: {
-        //   visibility: 'visible',
-        // },
         paint: {
           'fill-extrusion-color': {
             property: 'value',
@@ -78,7 +96,7 @@ export default class Map extends React.Component {
             ],
           },
           'fill-extrusion-height': ['*', 10, ['number', ['get', 'value'], 1]],
-          'fill-extrusion-opacity': 1,
+          'fill-extrusion-opacity': 0,
           'fill-extrusion-opacity-transition': {
             duration: 800,
             delay: 0,
@@ -133,41 +151,24 @@ export default class Map extends React.Component {
       });
 
       this.map.addLayer({
-        id: 'evac_center',
-        type: 'circle',
+        id: 'evacuation',
+        type: 'symbol',
         source: 'evacuation',
-        'source-layer': 'marikina_evac_centroids',
-        // layout: {
-        //   visibility: 'none',
-        // },
+        'source-layer': 'evacuation_centers',
+        layout: {
+          visibility: 'none',
+          'icon-image': '{icon}-15',
+          'text-field': '{amenity}',
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-size': 11,
+          'text-transform': 'uppercase',
+          'text-letter-spacing': 0.05,
+          'text-offset': [0, 1.5],
+        },
         paint: {
-          'circle-opacity': 0,
-          'circle-opacity-transition': {
-            duration: 800,
-            delay: 0,
-          },
-          // 'circle-stroke-color': '#888888',
-          // 'circle-stroke-width': 1,
-          'circle-radius': {
-            property: 'area',
-            stops: [
-              [{ zoom: 12, value: 500 }, 5],
-              [{ zoom: 12, value: 19000 }, 10],
-              [{ zoom: 13.5, value: 500 }, 5],
-              [{ zoom: 13.5, value: 19000 }, 15],
-              [{ zoom: 15, value: 500 }, 10],
-              [{ zoom: 15, value: 19000 }, 30],
-            ],
-          },
-          'circle-color': '#000000',
-        //   'circle-color': [
-        //     'match',
-        //     ['get', 'amenity'],
-        //     'school', '#fbb03b',
-        //     'community_centre', '#223b53',
-        //     'basketball_court', '#e55e5e',
-        //     /* other */ '#ccc',
-        //   ],
+          'text-color': '#202',
+          'text-halo-color': '#fff',
+          'text-halo-width': 2,
         },
       });
 
@@ -225,7 +226,70 @@ export default class Map extends React.Component {
           },
         },
       }, 'waterway');
+
+      // this.map.addLayer({
+      //   id: 'buildings',
+      //   type: 'fill',
+      //   source: 'buildings',
+      //   'source-layer': 'marikina_structures',
+      //   paint: {
+      //     'fill-color': '#000000',
+      //     'fill-opacity': 1,
+      //     'fill-outline-color': '#000000',
+      //   },
+      //   // layout: {
+      //   //   'icon-image': 'college-15',
+      //   // },
+      //   filter: ['==', 'building', 'house']
+      // }, 'waterway');
+
+      this.map.addLayer({
+        id: 'labels',
+        type: 'symbol',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [{
+              type: 'Feature',
+              properties: {
+                name: 'Marikina River',
+                size: 12,
+              },
+              geometry: {
+                type: 'Point',
+                coordinates: [121.08634085311045, 14.634044503866145],
+              },
+            },
+            {
+              type: 'Feature',
+              properties: {
+                name: 'Marikina City',
+                size: 20,
+              },
+              geometry: {
+                type: 'Point',
+                coordinates: [121.10887595008319, 14.652422188794105],
+              },
+            }],
+          },
+        },
+        layout: {
+          'text-field': '{name}',
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-size': ['get', 'size'],
+          'text-transform': 'uppercase',
+          'text-letter-spacing': 0.05,
+          'text-offset': [0, 1.5],
+        },
+        paint: {
+          'text-color': '#303',
+          'text-halo-color': '#f9f6e7',
+          'text-halo-width': 2,
+        },
+      });
     });
+
 
     // this.tooltipContainer = document.createElement('div');
     //
@@ -233,7 +297,8 @@ export default class Map extends React.Component {
     //   offset: [0, -95],
     // }).setLngLat([0, 0]).addTo(this.map);
 
-    // this.map.on('click', (e) => {
+    this.map.on('click', (e) => {
+      console.log(e);
     //   const features = this.map.queryRenderedFeatures(e.point, { layers: ['unclustered-point'] });
     //   const mapZoom = this.map.getZoom();
     //
@@ -251,7 +316,7 @@ export default class Map extends React.Component {
     //   }
     //   // tooltip.setLngLat(e.lngLat);
     //   // this.setTooltip(features);
-    // });
+    });
     //
     // this.map.on('mousemove', (e) => {
     //   const features = this.map.queryRenderedFeatures(e.point, { layers: ['unclustered-point'] });
@@ -265,9 +330,9 @@ export default class Map extends React.Component {
 
     if (this.map.isStyleLoaded()) {
       if (nextProps.chapterName !== chapterName) {
-        const { layers, position } = chapters[nextProps.chapterName];
+        const { paint, layout, position } = chapters[nextProps.chapterName];
 
-        layers.forEach((data) => {
+        paint.forEach((data) => {
           // this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
           const layer = this.map.getLayer(data.id);
 
@@ -276,6 +341,10 @@ export default class Map extends React.Component {
             this.map.setPaintProperty(data.id, `${layerType}-opacity`, data.opacity);
           }
         });
+
+        layout.forEach((data) => {
+          this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
+        })
 
         this.map.easeTo(position);
       }

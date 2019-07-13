@@ -53,7 +53,10 @@ export default class Panel extends React.Component {
         <section id="marikina" className='active'>
           <h3>Marikina City</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</p>
-          <p>Sed gravida, erat id ultricies gravida, magna tellus interdum ex, sed accumsan enim massa ac quam. Sed gravida tortor sit amet urna dapibus, eget tristique sapien molestie. Donec sollicitudin arcu id nibh dictum, ut porta eros ullamcorper. Donec finibus, diam ut pellentesque tempus, dui risus viverra dolor, vehicula placerat lorem metus nec mauris. Donec mattis diam a eros tincidunt, quis fringilla erat aliquam. Vestibulum sagittis elit vitae consectetur luctus. Nulla facilisi.</p>
+        </section>
+        <section id="land">
+          <h3>Marikina City</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</p>
         </section>
         <section id="typhoon">
           <h3>Super typhoon Ondoy</h3>

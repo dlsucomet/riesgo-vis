@@ -1,6 +1,48 @@
 const chapters = {
   marikina: {
-    layers: [
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 1,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'roaddistance',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'visible',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+    },
+  },
+  land: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
       {
         id: 'landelevation3d',
         opacity: 1,
@@ -10,16 +52,22 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'evac_center',
-        opacity: 0,
-      },
-      {
         id: 'population',
         opacity: 0,
       },
       {
         id: 'roaddistance',
-        opacity: 0
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
       },
     ],
     position: {
@@ -28,7 +76,7 @@ const chapters = {
     },
   },
   typhoon: {
-    layers: [
+    paint: [
       {
         id: 'landelevation3d',
         opacity: 0,
@@ -36,10 +84,6 @@ const chapters = {
       {
         id: 'flood',
         opacity: 0.7,
-      },
-      {
-        id: 'evac_center',
-        opacity: 0,
       },
       {
         id: 'population',
@@ -52,6 +96,16 @@ const chapters = {
       {
         id: 'roaddistance',
         opacity: 0
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'visible',
       },
     ],
     position: {
@@ -60,7 +114,7 @@ const chapters = {
     },
   },
   evacuation: {
-    layers: [
+    paint: [
       {
         id: 'landelevation3d',
         opacity: 0,
@@ -68,10 +122,6 @@ const chapters = {
       {
         id: 'flood',
         opacity: 0.7,
-      },
-      {
-        id: 'evac_center',
-        opacity: 1,
       },
       {
         id: 'population',
@@ -86,13 +136,23 @@ const chapters = {
         opacity: 0
       },
     ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
     position: {
       pitch: 0,
       bearing: 0,
     },
   },
   population: {
-    layers: [
+    paint: [
       {
         id: 'landelevation3d',
         opacity: 0,
@@ -100,10 +160,6 @@ const chapters = {
       {
         id: 'flood',
         opacity: 0,
-      },
-      {
-        id: 'evac_center',
-        opacity: 1,
       },
       {
         id: 'population',
@@ -118,6 +174,16 @@ const chapters = {
         opacity: 0
       },
     ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
     position: {
       pitch: 0,
       bearing: 0,
@@ -125,7 +191,7 @@ const chapters = {
     },
   },
   accessibility: {
-    layers: [
+    paint: [
       {
         id: 'landelevation3d',
         opacity: 0,
@@ -133,10 +199,6 @@ const chapters = {
       {
         id: 'flood',
         opacity: 0,
-      },
-      {
-        id: 'evac_center',
-        opacity: 1,
       },
       {
         id: 'population',
@@ -151,6 +213,21 @@ const chapters = {
         opacity: 0.9,
       },
     ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      duration: 800,
+    },
   },
 };
 
