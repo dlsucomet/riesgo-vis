@@ -27,6 +27,7 @@ const theme = createMuiTheme({
     },
     h3: {
       fontFamily: ['DM Serif Display', 'serif'].join(','),
+      marginBottom: 10,
     },
     h4: {
       fontFamily: ['DM Serif Display', 'serif'].join(','),

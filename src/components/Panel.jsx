@@ -53,7 +53,9 @@ export default class Panel extends React.Component {
       <div id="features" onScroll={this.handleScroll}>
         <section id="marikina" className='active'>
           <Typography variant="h3">Marikina City</Typography>
-          <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</Typography>
+          <Typography>
+            A highly urbanized city in Metro Manila, Philippines, it lies in a valley surrounded by the mountains of Sierra Madre and the hills of Quezon City, with Marikina river running through it. Like the rest of the country, Marikina experiences a tropical monsoon climate.
+          </Typography>
         </section>
         <section id="land">
           <Typography variant="h3">Marikina City</Typography>
