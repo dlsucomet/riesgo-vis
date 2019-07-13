@@ -6,6 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Typography from '@material-ui/core/Typography';
 import { filters } from '../config/options';
 
 const styles = theme => ({
@@ -48,7 +49,9 @@ const Filter = (props) => {
         choices.map(filter => (
           <Paper className={classes.paper}>
             <FormControl component="fieldset">
-              <FormLabel component="legend" className={classes.legend}>{filter.label}</FormLabel>
+              <FormLabel component="legend" className={classes.legend}>
+                <Typography variant="caption">{filter.label}</Typography>
+              </FormLabel>
               <RadioGroup
                 aria-label="Amenity Type"
                 name="amenity"
@@ -59,7 +62,7 @@ const Filter = (props) => {
                 {filter.options.map(option => (
                   <FormControlLabel
                     value={option.value}
-                    style={{ height: 36 }}
+                    style={{ height: 32 }}
                     control={<Radio />}
                     label={option.label}
                   />

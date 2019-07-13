@@ -185,7 +185,7 @@ export default class Map extends React.Component {
           'icon-image': '{icon}-15',
           'icon-allow-overlap': true,
           'text-field': '{amenity}',
-          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-font': ['Open Sans Condensed'],
           'text-size': 10,
           'text-transform': 'lowercase',
           'text-letter-spacing': 0.05,

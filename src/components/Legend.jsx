@@ -10,8 +10,6 @@ const styles = theme => ({
     margin: '0 0 5px',
     color: '#666',
     textTransform: 'uppercase',
-    // fontSize: '11px',
-    // fontWeight: '700',
     textAlign: 'left',
   },
   container: {
@@ -49,17 +47,17 @@ const styles = theme => ({
         display: 'table-row',
       },
       '& div': {
-        width: '100%',
         height: '18px',
+      },
+      '& .quartile': {
+        display: 'table-cell',
       },
     },
     '& li.min': {
       float: 'left',
-      margin: '0 0 5px',
     },
     '& li.max': {
       float: 'right',
-      margin: '0 0 5px',
     },
   },
 });
@@ -79,14 +77,21 @@ const Legend = (props) => {
       <Typography variant="caption" className={classes.labelStyle}>{legend.name}</Typography>
       <ul>
         <li className="min">
-          <Typography>&lt; {legend.min}</Typography>
+          <Typography variant="overline">
+            &lt; {legend.min}
+          </Typography>
         </li>
         <li className="max">
-          <Typography>{legend.max}+</Typography>
+          <Typography variant="overline">
+            {legend.max}+
+          </Typography>
         </li>
         <li className="graph">
           <div className="colors">
-            <div className="continuous" />
+            {legend.range && <div className="continuous" style={{ width: '100%' }} />}
+            {!legend.range && legend.colors.map(color => (
+              <div className="quartile" style={{ backgroundColor: color, width: `${100 / legend.colors.length}%` }} />
+            ))}
           </div>
         </li>
       </ul>
