@@ -11,7 +11,7 @@ export default class Map extends React.Component {
     super(props);
 
     this.state = {
-      lat: 14.643320762156335,
+      lat: 14.642017161220147,
       lng: 121.10719934846895,
       zoom: 12.5,
     };
@@ -185,7 +185,7 @@ export default class Map extends React.Component {
           'icon-image': '{icon}-15',
           'icon-allow-overlap': true,
           'text-field': '{amenity}',
-          'text-font': ['Open Sans Condensed'],
+          'text-font': ['Open Sans Bold'],
           'text-size': 10,
           'text-transform': 'lowercase',
           'text-letter-spacing': 0.05,
@@ -494,12 +494,12 @@ export default class Map extends React.Component {
       bottom: 0,
     };
 
-    const { chapterName } = this.props;
+    const { chapterName, layer } = this.props;
 
     return (
       <div>
         <div style={mapStyle} ref={(el) => { this.mapContainer = el; }} />
-        <Legend chapterName={chapterName} />
+        <Legend chapterName={chapterName} layer={layer} />
       </div>
     );
   }

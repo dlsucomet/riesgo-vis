@@ -17,10 +17,13 @@ const styles = theme => ({
     bottom: theme.spacing.unit * 3,
     left: '30%',
     marginLeft: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
     zIndex: 105,
     width: '250px',
-    padding: theme.spacing.unit * 2,
-    border: '1px solid #999',
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
     '& ul': {
       padding: 0,
       margin: 0,
@@ -63,14 +66,19 @@ const styles = theme => ({
 });
 
 const Legend = (props) => {
-
-  const { classes, chapterName } = props;
+  const { classes, chapterName, layer } = props;
 
   if (chapterLayers[chapterName] === undefined) {
     return null;
   }
   const layers = chapterLayers[chapterName];
-  const legend = legendOptions[layers[0]];
+  let legend;
+
+  if (layers.length > 1) {
+    legend = legendOptions[layer];
+  } else {
+    legend = legendOptions[layers[0]];
+  }
 
   return (
     <Paper className={classes.container}>
@@ -78,12 +86,14 @@ const Legend = (props) => {
       <ul>
         <li className="min">
           <Typography variant="overline">
-            &lt; {legend.min}
+            {legend.range && <span>&lt; </span>}
+            {legend.min}
           </Typography>
         </li>
         <li className="max">
           <Typography variant="overline">
-            {legend.max}+
+            {legend.max}
+            {legend.range && <span>+</span>}
           </Typography>
         </li>
         <li className="graph">

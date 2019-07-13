@@ -86,6 +86,10 @@ const chapters = {
   typhoon: {
     paint: [
       {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
         id: 'landelevation3d',
         opacity: 0,
       },
@@ -127,6 +131,10 @@ const chapters = {
   },
   evacuation: {
     paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
       {
         id: 'landelevation3d',
         opacity: 0,
@@ -170,6 +178,10 @@ const chapters = {
   population: {
     paint: [
       {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
         id: 'landelevation3d',
         opacity: 0,
       },
@@ -201,7 +213,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'none',
+        visibility: 'visible',
       },
     ],
     position: {
@@ -212,6 +224,10 @@ const chapters = {
   },
   accessibility: {
     paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
       {
         id: 'landelevation3d',
         opacity: 0,
