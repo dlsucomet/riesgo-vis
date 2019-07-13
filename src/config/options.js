@@ -117,7 +117,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'visible',
+        visibility: 'none',
       },
     ],
     position: {
@@ -159,7 +159,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'none',
+        visibility: 'visible',
       },
     ],
     position: {
@@ -244,7 +244,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'none',
+        visibility: 'visible',
       },
     ],
     position: {
@@ -303,11 +303,11 @@ const filters = {
       ],
     }
   ],
-  typhoon: [
+  evacuation: [
     {
       hasAll: true,
       value: 'amenity',
-      label: 'Amenity',
+      label: 'Evacuation Centers',
       onChange: 'updateAmenity',
       options: [
         {
@@ -343,10 +343,34 @@ const filters = {
   ],
 };
 
-const filterLabels = {
-  land: 'Amenity',
-  typhoon: 'Typhoon',
-  evacuation: 'Greenhouse Gas Intensity',
+const legendOptions = {
+  landelevation3d: {
+    name: 'Land Elevation (m)',
+    colors: ['#ffffcc', '#c7e9b4', '#7fcdbb', '#41b6c4', '#1d91c0'],
+    min: 2,
+    max: 70,
+    range: true,
+  },
+  landelevation: {
+    name: 'Land Elevation (m)',
+    colors: ['#ffffcc', '#c7e9b4', '#7fcdbb', '#41b6c4', '#1d91c0'],
+    min: 2,
+    max: 70,
+    range: true,
+  },
+  flood: {
+    name: 'Flood Hazard ',
+    colors: ['#ffffb2', '#fecc5c', '#fd8d3c', '#e31a1c'],
+    min: 'Low',
+    max: 'High',
+    range: false,
+  },
 };
 
-export { chapters, legendLabels, filters, filterLabels };
+const chapterLayers = {
+  land: ['landelevation3d'],
+  typhoon: ['flood'],
+  evacuation: ['flood', 'landelevation'],
+}
+
+export { chapters, legendLabels, filters, legendOptions, chapterLayers };

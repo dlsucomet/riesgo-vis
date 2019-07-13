@@ -25,3 +25,69 @@ section:last-child {
   border-bottom: none;
   margin-bottom: 200px;
 }
+
+.mapLegend {
+  position: absolute;
+  bottom: 25px;
+  right: 5px;
+  z-index: 105;
+  width: 300px;
+  background: #ffffff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+.mapLegend ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mapLegend ul li {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: #666;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.mapLegend li.graph {
+  clear: both;
+  overflow: hidden;
+  display: table;
+  width: 100%;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid #b3b3b3;
+}
+
+.mapLegend li.graph .colors {
+  display: table-row;
+}
+
+.mapLegend li.graph div {
+  width: 100%;
+  height: 18px;
+}
+
+.mapLegend li.graph .quartile {
+  display: table-cell;
+}
+
+.continuous {
+  /*display: table-row;*/
+  background: linear-gradient(to right, #ffffcc, #c7e9b4, #7fcdbb,
+  #41b6c4, #1d91c0, #225ea8, #0c2c84);
+}
+
+.mapLegend li.min {
+  float: left;
+  margin: 0 0 5px;
+}
+
+.mapLegend li.max {
+  float: right;
+  margin: 0 0 5px;
+}

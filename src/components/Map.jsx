@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
+import Legend from './Legend';
 import { chapters } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
@@ -376,7 +377,11 @@ export default class Map extends React.Component {
 
       if (nextProps.amenity) {
         if (nextProps.amenity !== amenity) {
-          this.map.setFilter('evacuation', ['==', 'amenity', nextProps.amenity]);
+          if (nextProps.amenity !== 'all') {
+            this.map.setFilter('evacuation', ['==', 'amenity', nextProps.amenity]);
+          } else {
+            this.map.setFilter('evacuation', undefined);
+          }
         }
       }
 
@@ -489,9 +494,13 @@ export default class Map extends React.Component {
       bottom: 0,
     };
 
+    const { chapterName } = this.props;
+
     return (
-      <div style={mapStyle} ref={(el) => { this.mapContainer = el; }} />
-      // <Legend />
+      <div>
+        <div style={mapStyle} ref={(el) => { this.mapContainer = el; }} />
+        <Legend chapterName={chapterName} />
+      </div>
     );
   }
 }
