@@ -13,6 +13,35 @@ const theme = createMuiTheme({
     },
     secondary: indigo,
   },
+  typography: {
+    fontFamily: [
+      'Rubik',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+    h1: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    h2: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    h3: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    h4: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    h5: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    h6: {
+      fontFamily: ['DM Serif Display', 'serif'].join(','),
+    },
+    caption: {
+      fontFamily: ['Open Sans Condensed', 'sans-serif'].join(','),
+      fontWeight: 700,
+    },
+  },
 });
 
 function Index() {
