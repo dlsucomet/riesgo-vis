@@ -3,7 +3,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 1,
+        opacity: 0.5,
       },
       {
         id: 'landelevation3d',
