@@ -100,7 +100,31 @@ export default class Map extends React.Component {
           'fill-extrusion-opacity-transition': {
             duration: 800,
             delay: 0,
-          }
+          },
+        },
+      }, 'waterway');
+
+      this.map.addLayer({
+        id: 'landelevation',
+        type: 'fill',
+        source: 'landelevation',
+        'source-layer': 'landelevation_100x100',
+        paint: {
+          'fill-color': {
+            property: 'value',
+            stops: [
+              [2, '#ffffcc'],
+              [17, '#c7e9b4'],
+              [35, '#7fcdbb'],
+              [52, '#41b6c4'],
+              [70, '#1d91c0'],
+            ],
+          },
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
         },
       }, 'waterway');
 
@@ -158,10 +182,11 @@ export default class Map extends React.Component {
         layout: {
           visibility: 'none',
           'icon-image': '{icon}-15',
+          'icon-allow-overlap': true,
           'text-field': '{amenity}',
           'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-          'text-size': 11,
-          'text-transform': 'uppercase',
+          'text-size': 10,
+          'text-transform': 'lowercase',
           'text-letter-spacing': 0.05,
           'text-offset': [0, 1.5],
         },
@@ -326,7 +351,7 @@ export default class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { chapterName } = this.props;
+    const { chapterName, amenity, buildingType, layer } = this.props;
 
     if (this.map.isStyleLoaded()) {
       if (nextProps.chapterName !== chapterName) {
@@ -347,6 +372,36 @@ export default class Map extends React.Component {
         })
 
         this.map.easeTo(position);
+      }
+
+      if (nextProps.amenity) {
+        if (nextProps.amenity !== amenity) {
+          this.map.setFilter('evacuation', ['==', 'amenity', nextProps.amenity]);
+        }
+      }
+
+      if (nextProps.buildingType) {
+        if (nextProps.buildingType !== buildingType) {
+          // Uncomment once building layer is available
+          // this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
+        }
+      }
+
+      if (nextProps.layer) {
+        if (nextProps.layer !== layer) {
+          const current = this.map.getLayer(layer);
+          const newlayer = this.map.getLayer(nextProps.layer)
+
+          if (current !== undefined) {
+            const layerType = current.type;
+            this.map.setPaintProperty(layer, `${layerType}-opacity`, 0);
+          }
+
+          if (current !== undefined) {
+            const layerType = newlayer.type;
+            this.map.setPaintProperty(nextProps.layer, `${layerType}-opacity`, 0.7);
+          }
+        }
       }
     }
     // const { theme, year, calamity, isEvacCenter } = this.props;
