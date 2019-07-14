@@ -1,0 +1,29 @@
+osm_id,amenity,name,social_facility,evacuation_center,area,icon
+"5168988",school,Marikina High School,shelter,yes,10113.0643597103,college
+"5168990",school,Marikina Elementary School,shelter,yes,8454.48840428702,college
+"5235831",school,Parang Elementary School,shelter,yes,18347.0661979981,college
+"5644348",school,Hermogenes Bautista Elementary School,shelter,yes,5547.08489066513,college
+"5708235",school,Parang High School,shelter,yes,11511.0590266007,college
+"6494760",school,Calumpang Elementary School,shelter,yes,8835.99676132913,college
+"25055845",school,San Roque Elementary School,shelter,yes,6949.53535155645,college
+"41741656",school,Fortune High School,shelter,yes,4389.18728122571,college
+"46331655",school,Barangka Elementary School,shelter,yes,8128.2181274473,college
+"46507461",school,Tañong High School,shelter,yes,3533.13911920251,college
+"48209843",school,Nangka Elementary School,shelter,yes,5571.4426407713,college
+"48210073",school,Malanday National High School,shelter,yes,6398.75868259966,college
+"50982403",school,Malanday Elementary School,shelter,yes,7846.14554917185,college
+"50982404",school,Concepcion Integrated School,shelter,yes,8996.0461605658,college
+"93199293",community_centre,JEM Subdivision Gym,shelter,yes,811.817561355649,basketball
+"93320662",school,Kapitan Moy Elementary School,shelter,yes,1747.14530651825,college
+"93320668",school,Marikina Heights High School,shelter,yes,1949.01538309268,college
+"106995109",community_centre,Fairlane Gym,,yes,851.300810832942,basketball
+"116914599",community_centre,Sampaguita Gym,,yes,506.823279675957,basketball
+"116914602",community_centre,Filipinas Gym,,yes,708.322680302377,basketball
+"256400347",community_centre,Parang Gym,,yes,1048.77642160872,basketball
+"281984899",basketball_court,Greenland Phase 1 Covered Court,shelter,yes,811.532453610212,basketball
+"282769220",basketball_court,IVS Basketball Court,,yes,901.202065794282,basketball
+"290486511",school,Concepcion Elementary School,shelter,yes,12577.1652727206,college
+"320623904",school,Santo Niño Elementary School,shelter,yes,9628.08993382983,college
+"432783339",community_centre,Nangka Gym,shelter,yes,870.765168531892,basketball
+"446778586",school,Fortune Elementary School,shelter,yes,5368.9414823298,college
+"446778587",school,Saint Mary Elementary School,shelter,,3833.52077384282,college
