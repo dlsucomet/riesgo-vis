@@ -13,9 +13,9 @@ export default class Map extends React.Component {
     super(props);
 
     this.state = {
-      lat: 14.642017161220147,
-      lng: 121.10719934846895,
-      zoom: 12.5,
+      lat: 14.639452415446272,
+      lng: 121.10270229817115,
+      zoom: 12.7,
     };
   }
 
@@ -34,8 +34,8 @@ export default class Map extends React.Component {
       zoom,
       minZoom: 12,
       maxZoom: 15,
-      pitch: 0,
-      bearing: 0,
+      pitch: 60,
+      bearing: 0.13,
     });
 
     this.map.addControl(new mapboxgl.NavigationControl(), 'top-right');
@@ -77,7 +77,7 @@ export default class Map extends React.Component {
         source: 'boundary',
         paint: {
           'fill-color': '#c46806',
-          'fill-opacity': 0.5,
+          'fill-opacity': 0,
         },
       }, 'waterway');
 
@@ -98,7 +98,7 @@ export default class Map extends React.Component {
             ],
           },
           'fill-extrusion-height': ['*', 10, ['number', ['get', 'value'], 1]],
-          'fill-extrusion-opacity': 0,
+          'fill-extrusion-opacity': 0.5,
           'fill-extrusion-opacity-transition': {
             duration: 800,
             delay: 0,
@@ -249,7 +249,24 @@ export default class Map extends React.Component {
         'source-layer': 'marikina_buildings_features',
         paint: {
           'fill-color': '#38316e',
+          // 'fill-color': [
+          //   'match',
+          //   ['get', 'building'],
+          //   'school', '#1b9e77',
+          //   'house', '#d95f02',
+          //   'residential', '#7570b3',
+          //   'commercial', '#e7298a',
+          //   'retail', '#66a61e',
+          //   'college', '#e6ab02',
+          //   'mall', '#a6761d',
+          //   'hospital', '#666666',
+          //   '#38316e',
+          // ],
           'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
           'fill-outline-color': '#38316e',
         },
       }, 'waterway');
@@ -308,9 +325,9 @@ export default class Map extends React.Component {
       offset: [0, -40],
     }).setLngLat([0, 0]).addTo(this.map);
 
-    // this.map.on('click', (e) => {
-    //
-    // });
+    this.map.on('click', (e) => {
+
+    });
 
     this.map.on('mousemove', (e) => {
       const { chapterName } = this.props;

@@ -1,15 +1,18 @@
-const center = [121.10719934846895, 14.642017161220147];
+const center = [121.10270229817115, 14.639452415446272];
+const pitch = 60;
+const bearing = 0.13;
+const zoom = 12.5;
 
 const chapters = {
   marikina: {
     paint: [
       {
         id: 'boundary',
-        opacity: 0.5,
+        opacity: 0,
       },
       {
         id: 'landelevation3d',
-        opacity: 0,
+        opacity: 0.5,
       },
       {
         id: 'buildings',
@@ -43,9 +46,9 @@ const chapters = {
       },
     ],
     position: {
-      pitch: 0,
-      bearing: 0,
-      zoom: 12.5,
+      pitch,
+      bearing,
+      zoom: 12.7,
       center,
       duration: 800,
     },
@@ -70,7 +73,7 @@ const chapters = {
       },
       {
         id: 'landelevation',
-        opacity: 0.7,
+        opacity: 0.5,
       },
       {
         id: 'population',
@@ -92,11 +95,9 @@ const chapters = {
       },
     ],
     position: {
-      // pitch: 45,
-      // bearing: -17.6,
       pitch: 0,
       bearing: 0,
-      zoom: 12.5,
+      zoom,
       center,
       duration: 800,
     },
@@ -202,7 +203,7 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
-      zoom: 12.5,
+      zoom,
       center,
       duration: 800,
     },
@@ -255,7 +256,7 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
-      zoom: 12.5,
+      zoom,
       center,
       duration: 800,
     },
@@ -308,7 +309,7 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
-      zoom: 12.5,
+      zoom,
       center,
       duration: 800,
     },
