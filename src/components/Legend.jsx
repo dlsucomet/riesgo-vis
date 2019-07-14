@@ -110,8 +110,9 @@ const Legend = (props) => {
 };
 
 Legend.propTypes = {
-  /** The selected topic tab */
-  topic: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired, // eslint-disable-line
+  chapterName: PropTypes.string.isRequired,
+  layer: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Legend);

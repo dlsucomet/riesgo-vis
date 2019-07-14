@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Radio from '@material-ui/core/Radio';
@@ -34,7 +35,7 @@ const styles = theme => ({
 
 const Filter = (props) => {
   const {
-    classes, chapterName
+    classes, chapterName,
   } = props;
 
   if (filters[chapterName] === undefined) {
@@ -74,6 +75,11 @@ const Filter = (props) => {
       }
     </div>
   );
+};
+
+Filter.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line
+  chapterName: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Filter);

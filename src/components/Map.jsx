@@ -24,8 +24,6 @@ export default class Map extends React.Component {
       lng, lat, zoom,
     } = this.state;
 
-    const { chapterName } = this.props;
-
     // Container to put React generated content in.
     this.tooltipContainer = document.createElement('div'); // eslint-disable-line
 
@@ -79,7 +77,6 @@ export default class Map extends React.Component {
         source: 'boundary',
         paint: {
           'fill-color': '#c46806',
-          // 'line-width': 4,
           'fill-opacity': 0.5,
         },
       }, 'waterway');
@@ -138,9 +135,6 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
-        // layout: {
-        //   visibility: 'none',
-        // },
         paint: {
           'fill-color': {
             property: 'fhm005yrs',
@@ -155,7 +149,7 @@ export default class Map extends React.Component {
           'fill-opacity-transition': {
             duration: 800,
             delay: 0,
-          }
+          },
         },
       }, 'waterway');
 
@@ -164,9 +158,6 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'radius',
         'source-layer': 'radius',
-        // layout: {
-        //   visibility: 'none',
-        // },
         paint: {
           'fill-opacity': 0,
           'fill-opacity-transition': {
@@ -207,9 +198,6 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
-        // layout: {
-        //   visibility: 'none',
-        // },
         paint: {
           'fill-color': {
             property: 'population',
@@ -320,27 +308,10 @@ export default class Map extends React.Component {
       offset: [0, -40],
     }).setLngLat([0, 0]).addTo(this.map);
 
-    this.map.on('click', (e) => {
-      console.log(e);
-    //   const features = this.map.queryRenderedFeatures(e.point, { layers: ['unclustered-point'] });
-    //   const mapZoom = this.map.getZoom();
+    // this.map.on('click', (e) => {
     //
-    //   if (features.length > 0) {
-    //     this.map.setFilter('selected-point', ['==', 'id', features[0].properties.id]);
-    //
-    //     this.map.flyTo({
-    //       center: e.lngLat,
-    //       speed: 0.75, // make the flying slow
-    //       zoom: mapZoom < 11.25 ? 11.25 : mapZoom,
-    //       // curve: 1, // change the speed at which it zooms out
-    //     });
-    //
-    //     onMapSelect(features[0].properties);
-    //   }
-    //   // tooltip.setLngLat(e.lngLat);
-    //   // this.setTooltip(features);
-    });
-    //
+    // });
+
     this.map.on('mousemove', (e) => {
       const { chapterName } = this.props;
       const features = this.map.queryRenderedFeatures(e.point, { layers: ['buildings'] });
@@ -359,25 +330,26 @@ export default class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { chapterName, amenity, buildingType, layer } = this.props;
+    const {
+      chapterName, amenity, buildingType, layer,
+    } = this.props;
 
     if (this.map.isStyleLoaded()) {
       if (nextProps.chapterName !== chapterName) {
-        const { paint, layout, position } = chapters[nextProps.chapterName];
+        const { paint, layout, position } = chapters[nextProps.chapterName]; // eslint-disable-line
 
         paint.forEach((data) => {
-          // this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
-          const layer = this.map.getLayer(data.id);
+          const currentLayer = this.map.getLayer(data.id);
 
-          if (layer !== undefined) {
-            const layerType = layer.type;
+          if (currentLayer !== undefined) {
+            const layerType = currentLayer.type;
             this.map.setPaintProperty(data.id, `${layerType}-opacity`, data.opacity);
           }
         });
 
         layout.forEach((data) => {
           this.map.setLayoutProperty(data.id, 'visibility', data.visibility);
-        })
+        });
 
         this.map.easeTo(position);
 
@@ -401,14 +373,18 @@ export default class Map extends React.Component {
 
       if (nextProps.buildingType) {
         if (nextProps.buildingType !== buildingType) {
-          this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
+          if (nextProps.buildingType !== 'all') {
+            this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
+          } else {
+            this.map.setFilter('buildings', undefined);
+          }
         }
       }
 
       if (nextProps.layer) {
         if (nextProps.layer !== layer) {
           const current = this.map.getLayer(layer);
-          const newlayer = this.map.getLayer(nextProps.layer)
+          const newlayer = this.map.getLayer(nextProps.layer);
 
           if (current !== undefined) {
             const layerType = current.type;
@@ -422,46 +398,6 @@ export default class Map extends React.Component {
         }
       }
     }
-    // const { theme, year, calamity, isEvacCenter } = this.props;
-    //
-    // if (nextProps.theme && nextProps.theme !== theme) {
-    //   this.setState({ colors: mapColors[nextProps.theme] });
-    //
-    //   this.map.setStyle(`mapbox://styles/mapbox/${nextProps.theme}-v9`);
-    // }
-    //
-    // if (nextProps.year && nextProps.year !== year) {
-    //   const newStyle = this.map.getStyle();
-    //   newStyle.sources.schools.data = `data/schools${nextProps.year}.geojson`;
-    //   this.map.setStyle(newStyle);
-    // }
-    //
-    // if (nextProps.isEvacCenter !== isEvacCenter) {
-    //   const filters = ['all'];
-    //
-    //   filters.push(['==', 'evac_center', nextProps.isEvacCenter]);
-    //
-    //   if (calamity !== 'all') {
-    //     filters.push(['>', calamity, 0]);
-    //   }
-    //
-    //   this.map.setFilter('unclustered-point', filters);
-    // }
-    //
-    // if (nextProps.calamity && nextProps.calamity !== calamity) {
-    //   if (nextProps.calamity !== 'all') {
-    //     this.map.setFilter('unclustered-point', [
-    //       'all',
-    //       ['==', 'evac_center', isEvacCenter],
-    //       ['>', nextProps.calamity, 0],
-    //     ]);
-    //   } else {
-    //     this.map.setFilter('unclustered-point', [
-    //       'all',
-    //       ['==', 'evac_center', isEvacCenter],
-    //     ]);
-    //   }
-    // }
   }
 
   componentWillUnmount() {
@@ -478,7 +414,7 @@ export default class Map extends React.Component {
       ReactDOM.render(
         React.createElement(
           MapTooltip, {
-            features, chapterName
+            features, chapterName,
           },
         ),
         this.tooltipContainer,
@@ -487,19 +423,11 @@ export default class Map extends React.Component {
       ReactDOM.unmountComponentAtNode(this.tooltipContainer);
     }
   }
-  //
-  // updateStyle() {
-  //   // const { circleColor, strokeColor } = this.state.colors;
-  //   // this.map.setPaintProperty('unclustered-point', 'circle-color', circleColor);
-  //   // this.map.setPaintProperty('unclustered-point', 'circle-stroke-color', strokeColor);
-  // }
 
   tooltipContainer;
 
   render() {
     const mapStyle = {
-      // height: '100vh',
-      // width: '100vw',
       position: 'fixed',
       width: '70%',
       left: '30%',

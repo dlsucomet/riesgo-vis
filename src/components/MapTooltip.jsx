@@ -21,7 +21,7 @@ const styles = theme => ({
   subtitle: {
     fontFamily: ['Rubik', 'Arial', 'sans-serif'].join(','),
     fontSize: 14,
-    color: '#000'
+    color: '#000',
   },
 });
 
@@ -42,7 +42,7 @@ const MapTooltip = (props) => {
 };
 
 MapTooltip.propTypes = {
-  /** Features of the selected polygon on the map */
+  classes: PropTypes.object.isRequired, // eslint-disable-line
   features: PropTypes.array.isRequired, // eslint-disable-line
   chapterName: PropTypes.string.isRequired,
 };

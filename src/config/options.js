@@ -92,8 +92,10 @@ const chapters = {
       },
     ],
     position: {
-      pitch: 45,
-      bearing: -17.6,
+      // pitch: 45,
+      // bearing: -17.6,
+      pitch: 0,
+      bearing: 0,
       zoom: 12.5,
       center,
       duration: 800,
@@ -131,7 +133,7 @@ const chapters = {
       },
       {
         id: 'roaddistance',
-        opacity: 0
+        opacity: 0,
       },
     ],
     layout: [
@@ -184,7 +186,7 @@ const chapters = {
       },
       {
         id: 'roaddistance',
-        opacity: 0
+        opacity: 0,
       },
     ],
     layout: [
@@ -237,7 +239,7 @@ const chapters = {
       },
       {
         id: 'roaddistance',
-        opacity: 0
+        opacity: 0,
       },
     ],
     layout: [
@@ -359,7 +361,7 @@ const filters = {
           value: 'hospital',
         },
       ],
-    }
+    },
   ],
   evacuation: [
     {
@@ -429,6 +431,8 @@ const chapterLayers = {
   land: ['landelevation3d'],
   typhoon: ['flood'],
   evacuation: ['flood', 'landelevation'],
-}
+};
 
-export { chapters, legendLabels, filters, legendOptions, chapterLayers };
+export {
+  chapters, legendLabels, filters, legendOptions, chapterLayers,
+};

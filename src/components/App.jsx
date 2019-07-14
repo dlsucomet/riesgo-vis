@@ -53,7 +53,7 @@ export default class App extends React.Component {
 
   render() {
     const {
-      chapterName, buildingType, amenity, layer
+      chapterName, buildingType, amenity, layer,
     } = this.state;
 
     return (
