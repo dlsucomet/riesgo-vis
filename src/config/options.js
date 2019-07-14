@@ -31,7 +31,15 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -80,7 +88,15 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -133,7 +149,11 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -148,8 +168,10 @@ const chapters = {
       },
     ],
     position: {
-      center: [121.0974737857415, 14.651397521228759],
-      zoom: 14.5,
+      // center: [121.0974737857415, 14.651397521228759],
+      // zoom: 14.5,
+      center,
+      zoom,
       bearing: 0,
       pitch: 0,
       duration: 800,
@@ -186,7 +208,11 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -232,14 +258,132 @@ const chapters = {
       },
       {
         id: 'population',
-        opacity: 1,
+        opacity: 0.9,
       },
       {
         id: 'radius',
-        opacity: 0.3,
+        opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  coverage: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0.8,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  capacity: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0.5,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -265,7 +409,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 0,
+        opacity: 1,
       },
       {
         id: 'landelevation3d',
@@ -292,8 +436,8 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
-        opacity: 0.9,
+        id: 'walking',
+        opacity: 0.3,
       },
     ],
     layout: [
@@ -364,6 +508,28 @@ const filters = {
       ],
     },
   ],
+  typhoon: [
+    {
+      hasAll: false,
+      value: 'floodYear',
+      label: 'Flood Hazard Return Period',
+      onChange: 'updateFloodYear',
+      options: [
+        {
+          label: '5-year',
+          value: 'fhm005yrs',
+        },
+        {
+          label: '25-year',
+          value: 'fhm025yrs',
+        },
+        {
+          label: '100-year',
+          value: 'fhm100yrs',
+        },
+      ],
+    },
+  ],
   evacuation: [
     {
       hasAll: true,
@@ -402,6 +568,40 @@ const filters = {
       ],
     },
   ],
+  accessibility: [
+    {
+      hasAll: false,
+      value: 'minutes',
+      label: 'Minutes to Walk',
+      onChange: 'updateMinutes',
+      options: [
+        {
+          label: '5',
+          value: 5,
+        },
+        {
+          label: '10',
+          value: 10,
+        },
+        {
+          label: '15',
+          value: 15,
+        },
+        {
+          label: '20',
+          value: 20,
+        },
+        {
+          label: '25',
+          value: 25,
+        },
+        {
+          label: '30',
+          value: 30,
+        },
+      ],
+    },
+  ],
 };
 
 const legendOptions = {
@@ -420,11 +620,25 @@ const legendOptions = {
     range: true,
   },
   flood: {
-    name: 'Flood Hazard ',
+    name: 'Flood Hazard',
     colors: ['#ffffb2', '#fecc5c', '#fd8d3c', '#e31a1c'],
     min: 'Low',
     max: 'High',
     range: false,
+  },
+  population: {
+    name: 'Population',
+    colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
+    min: 13,
+    max: 24,
+    range: true,
+  },
+  radius: {
+    name: 'Population Coverage',
+    colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
+    min: 5700,
+    max: 13900,
+    range: true,
   },
 };
 
@@ -432,8 +646,17 @@ const chapterLayers = {
   land: ['landelevation3d'],
   typhoon: ['flood'],
   evacuation: ['flood', 'landelevation'],
+  population: ['population'],
+  coverage: ['radius'],
 };
 
+const floodStops = [
+  [1, '#e31a1c'],
+  [2, '#fd8d3c'],
+  [3, '#fecc5c'],
+  [4, '#ffffb2'],
+];
+
 export {
-  chapters, legendLabels, filters, legendOptions, chapterLayers,
+  chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
 };

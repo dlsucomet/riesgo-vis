@@ -63,6 +63,12 @@ const styles = theme => ({
       float: 'right',
     },
   },
+
+  // .continuous {
+  //   /*display: table-row;*/
+  //   background: linear-gradient(to right, #ffffcc, #c7e9b4, #7fcdbb,
+  //   #41b6c4, #1d91c0, #225ea8, #0c2c84);
+  // }
 });
 
 const Legend = (props) => {
@@ -98,7 +104,7 @@ const Legend = (props) => {
         </li>
         <li className="graph">
           <div className="colors">
-            {legend.range && <div className="continuous" style={{ width: '100%' }} />}
+            {legend.range && <div style={{ width: '100%', background: `linear-gradient(to right, ${legend.colors.join(',')})` }} />}
             {!legend.range && legend.colors.map(color => (
               <div className="quartile" style={{ backgroundColor: color, width: `${100 / legend.colors.length}%` }} />
             ))}

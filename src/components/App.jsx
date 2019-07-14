@@ -12,12 +12,16 @@ export default class App extends React.Component {
       buildingType: 'all',
       amenity: 'all',
       layer: 'flood',
+      floodYear: 'fhm005yrs',
+      minutes: 5,
     };
 
     this.updateChapter = this.updateChapter.bind(this);
     this.updateAmenity = this.updateAmenity.bind(this);
     this.updateBuildingType = this.updateBuildingType.bind(this);
     this.updateLayer = this.updateLayer.bind(this);
+    this.updateFloodYear = this.updateFloodYear.bind(this);
+    this.updateMinutes = this.updateMinutes.bind(this);
   }
 
   updateChapter = (chapterName) => {
@@ -51,9 +55,21 @@ export default class App extends React.Component {
     });
   }
 
+  updateFloodYear = (event) => {
+    this.setState({
+      floodYear: event.target.value,
+    });
+  }
+
+  updateMinutes = (event) => {
+    this.setState({
+      minutes: parseInt(event.target.value, 10),
+    });
+  }
+
   render() {
     const {
-      chapterName, buildingType, amenity, layer,
+      chapterName, buildingType, amenity, layer, floodYear, minutes,
     } = this.state;
 
     return (
@@ -63,6 +79,8 @@ export default class App extends React.Component {
           buildingType={buildingType}
           amenity={amenity}
           layer={layer}
+          floodYear={floodYear}
+          minutes={minutes}
         />
         <Panel
           chapterName={chapterName}
@@ -73,9 +91,13 @@ export default class App extends React.Component {
           buildingType={buildingType}
           amenity={amenity}
           layer={layer}
+          floodYear={floodYear}
+          minutes={minutes}
           updateAmenity={this.updateAmenity}
           updateBuildingType={this.updateBuildingType}
           updateLayer={this.updateLayer}
+          updateFloodYear={this.updateFloodYear}
+          updateMinutes={this.updateMinutes}
         />
       </div>
     );

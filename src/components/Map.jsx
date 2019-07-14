@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
-import { chapters } from '../config/options';
+import { chapters, floodStops } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
@@ -58,7 +58,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('radius', {
         type: 'vector',
-        url: 'mapbox://unissechua.cjxyxmuw109vi2tp7nn20ic5a-83o6p',
+        url: 'mapbox://unissechua.78x6pdi0',
       });
 
       this.map.addSource('buildings', {
@@ -71,13 +71,24 @@ export default class Map extends React.Component {
         data: 'data/marikina_boundary.geojson',
       });
 
+      this.map.addSource('population', {
+        type: 'vector',
+        url: 'mapbox://unissechua.djetk3sb',
+      });
+
+      this.map.addSource('isochrones', {
+        type: 'vector',
+        url: 'mapbox://unissechua.a0wp66ok',
+      });
+
       this.map.addLayer({
         id: 'boundary',
-        type: 'fill',
+        type: 'line',
         source: 'boundary',
         paint: {
-          'fill-color': '#c46806',
-          'fill-opacity': 0,
+          'line-color': '#090909',
+          'line-opacity': 0,
+          'line-width': 2,
         },
       }, 'waterway');
 
@@ -157,16 +168,24 @@ export default class Map extends React.Component {
         id: 'radius',
         type: 'fill',
         source: 'radius',
-        'source-layer': 'radius',
+        'source-layer': 'radius_coverage',
         paint: {
           'fill-opacity': 0,
           'fill-opacity-transition': {
             duration: 800,
             delay: 0,
           },
-          // 'circle-stroke-color': '#888888',
-          // 'circle-stroke-width': 1,
-          'fill-color': '#ffffff',
+          'fill-outline-color': '#49006a',
+          'fill-color': {
+            property: 'pop_coverage',
+            stops: [
+              [5700, '#feebe2'],
+              [9200, '#fbb4b9'],
+              [10500, '#f768a1'],
+              [11800, '#c51b8a'],
+              [13900, '#7a0177'],
+            ],
+          },
         },
       });
 
@@ -179,33 +198,34 @@ export default class Map extends React.Component {
           visibility: 'none',
           'icon-image': '{icon}-15',
           'icon-allow-overlap': true,
-          'text-field': '{amenity}',
-          'text-font': ['Open Sans Bold'],
-          'text-size': 10,
-          'text-transform': 'lowercase',
-          'text-letter-spacing': 0.05,
-          'text-offset': [0, 1.5],
+          // 'text-field': '{amenity}',
+          // 'text-font': ['Open Sans Bold'],
+          // 'text-size': 10,
+          // 'text-transform': 'lowercase',
+          // 'text-letter-spacing': 0.05,
+          // 'text-offset': [0, 1.5],
         },
-        paint: {
-          'text-color': '#202',
-          'text-halo-color': '#fff',
-          'text-halo-width': 2,
-        },
+        // paint: {
+        //   'text-color': '#202',
+        //   'text-halo-color': '#fff',
+        //   'text-halo-width': 2,
+        // },
       });
 
       this.map.addLayer({
         id: 'population',
         type: 'fill',
-        source: 'riesgo',
-        'source-layer': 'riesgo',
+        source: 'population',
+        'source-layer': 'marikina_pop',
         paint: {
           'fill-color': {
-            property: 'population',
+            property: 'value',
             stops: [
-              [0, '#ffffcc'],
-              [0.01, '#7fcdbb'],
-              [0.02, '#1d91c0'],
-              [0.03, '#0c2c84'],
+              [0, '#feebe2'],
+              [13, '#fbb4b9'],
+              [16, '#f768a1'],
+              [21, '#c51b8a'],
+              [24, '#7a0177'],
             ],
           },
           'fill-opacity': 0,
@@ -217,29 +237,30 @@ export default class Map extends React.Component {
       }, 'waterway');
 
       this.map.addLayer({
-        id: 'roaddistance',
+        id: 'walking',
         type: 'fill',
-        source: 'riesgo',
-        'source-layer': 'riesgo',
+        source: 'isochrones',
+        'source-layer': 'walkingiso',
         paint: {
           'fill-color': {
-            property: 'roaddistance',
+            property: 'AA_MINS',
             stops: [
-              [150, '#ffffcc'],
-              [3000, '#c7e9b4'],
-              [6000, '#7fcdbb'],
-              [18500, '#41b6c4'],
-              [31000, '#1d91c0'],
-              [34000, '#225ea8'],
-              [37000, '#0c2c84'],
+              [5, '#feb24c'],
+              [10, '#feb24c'],
+              [15, '#feb24c'],
+              [20, '#fd8d3c'],
+              [25, '#f03b20'],
+              [30, '#bd0026'],
             ],
           },
+          'fill-outline-color': '#090909',
           'fill-opacity': 0,
           'fill-opacity-transition': {
             duration: 800,
             delay: 0,
           },
         },
+        filter: ['==', 'AA_MINS', 5],
       }, 'waterway');
 
       this.map.addLayer({
@@ -326,7 +347,23 @@ export default class Map extends React.Component {
     }).setLngLat([0, 0]).addTo(this.map);
 
     this.map.on('click', (e) => {
+      const { chapterName } = this.props;
 
+      // Do only for accessibility story
+      if (chapterName === 'accessibility') {
+        const features = this.map.queryRenderedFeatures(e.point, { layers: ['evacuation'] });
+
+        if (features.length > 0) {
+          const selected = features[0].properties;
+
+          if (selected.osm_id !== undefined) {
+            this.map.getCanvas().style.cursor = features.length ? 'default' : '';
+
+            // Set filter for isochrones depending on the osm_id
+            this.map.setFilter('walking', ['==', 'osm_id', selected.osm_id]);
+          }
+        }
+      }
     });
 
     this.map.on('mousemove', (e) => {
@@ -348,7 +385,7 @@ export default class Map extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      chapterName, amenity, buildingType, layer,
+      chapterName, amenity, buildingType, layer, floodYear, minutes,
     } = this.props;
 
     if (this.map.isStyleLoaded()) {
@@ -414,6 +451,21 @@ export default class Map extends React.Component {
           }
         }
       }
+
+      if (nextProps.floodYear) {
+        if (nextProps.floodYear !== floodYear) {
+          this.map.setPaintProperty('flood', 'fill-color', {
+            property: nextProps.floodYear,
+            stops: floodStops,
+          });
+        }
+      }
+
+      if (nextProps.minutes) {
+        if (nextProps.minutes !== minutes) {
+          this.map.setFilter('walking', ['==', 'AA_MINS', nextProps.minutes]);
+        }
+      }
     }
   }
 
@@ -468,4 +520,5 @@ Map.propTypes = {
   buildingType: PropTypes.string.isRequired,
   amenity: PropTypes.string.isRequired,
   layer: PropTypes.string.isRequired,
+  floodYear: PropTypes.string.isRequired,
 };

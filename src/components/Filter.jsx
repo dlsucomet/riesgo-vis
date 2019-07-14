@@ -54,8 +54,8 @@ const Filter = (props) => {
                 <Typography variant="caption">{filter.label}</Typography>
               </FormLabel>
               <RadioGroup
-                aria-label="Amenity Type"
-                name="amenity"
+                aria-label={filter.label}
+                name={filter.value}
                 value={props[filter.value]}
                 onChange={props[filter.onChange]}
               >
