@@ -1,3 +1,5 @@
+const center = [121.10719934846895, 14.642017161220147];
+
 const chapters = {
   marikina: {
     paint: [
@@ -7,6 +9,10 @@ const chapters = {
       },
       {
         id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
         opacity: 0,
       },
       {
@@ -39,6 +45,9 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
+      zoom: 12.5,
+      center,
+      duration: 800,
     },
   },
   land: {
@@ -49,7 +58,11 @@ const chapters = {
       },
       {
         id: 'landelevation3d',
-        opacity: 1,
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0.5,
       },
       {
         id: 'flood',
@@ -57,7 +70,7 @@ const chapters = {
       },
       {
         id: 'landelevation',
-        opacity: 0,
+        opacity: 0.7,
       },
       {
         id: 'population',
@@ -81,6 +94,9 @@ const chapters = {
     position: {
       pitch: 45,
       bearing: -17.6,
+      zoom: 12.5,
+      center,
+      duration: 800,
     },
   },
   typhoon: {
@@ -92,6 +108,10 @@ const chapters = {
       {
         id: 'landelevation3d',
         opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0.5,
       },
       {
         id: 'flood',
@@ -125,8 +145,11 @@ const chapters = {
       },
     ],
     position: {
-      pitch: 0,
+      center: [121.0974737857415, 14.651397521228759],
+      zoom: 14.5,
       bearing: 0,
+      pitch: 0,
+      duration: 800,
     },
   },
   evacuation: {
@@ -137,6 +160,10 @@ const chapters = {
       },
       {
         id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
         opacity: 0,
       },
       {
@@ -173,6 +200,9 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
+      zoom: 12.5,
+      center,
+      duration: 800,
     },
   },
   population: {
@@ -183,6 +213,10 @@ const chapters = {
       },
       {
         id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
         opacity: 0,
       },
       {
@@ -219,6 +253,8 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
+      zoom: 12.5,
+      center,
       duration: 800,
     },
   },
@@ -230,6 +266,10 @@ const chapters = {
       },
       {
         id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
         opacity: 0,
       },
       {
@@ -266,6 +306,8 @@ const chapters = {
     position: {
       pitch: 0,
       bearing: 0,
+      zoom: 12.5,
+      center,
       duration: 800,
     },
   },
