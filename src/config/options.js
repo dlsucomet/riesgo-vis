@@ -31,7 +31,15 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -80,7 +88,15 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -133,7 +149,11 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -186,7 +206,11 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -232,14 +256,132 @@ const chapters = {
       },
       {
         id: 'population',
-        opacity: 1,
+        opacity: 0.9,
       },
       {
         id: 'radius',
-        opacity: 0.3,
+        opacity: 0,
       },
       {
-        id: 'roaddistance',
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  coverage: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0.8,
+      },
+      {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  capacity: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capacity',
+        opacity: 0.5,
+      },
+      {
+        id: 'walking',
         opacity: 0,
       },
     ],
@@ -292,8 +434,8 @@ const chapters = {
         opacity: 0,
       },
       {
-        id: 'roaddistance',
-        opacity: 0.9,
+        id: 'walking',
+        opacity: 0.5,
       },
     ],
     layout: [
@@ -420,11 +562,25 @@ const legendOptions = {
     range: true,
   },
   flood: {
-    name: 'Flood Hazard ',
+    name: 'Flood Hazard',
     colors: ['#ffffb2', '#fecc5c', '#fd8d3c', '#e31a1c'],
     min: 'Low',
     max: 'High',
     range: false,
+  },
+  population: {
+    name: 'Population',
+    colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
+    min: 13,
+    max: 24,
+    range: true,
+  },
+  radius: {
+    name: 'Population Coverage',
+    colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
+    min: 5700,
+    max: 13900,
+    range: true,
   },
 };
 
@@ -432,6 +588,8 @@ const chapterLayers = {
   land: ['landelevation3d'],
   typhoon: ['flood'],
   evacuation: ['flood', 'landelevation'],
+  population: ['population'],
+  coverage: ['radius'],
 };
 
 export {

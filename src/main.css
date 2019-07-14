@@ -76,12 +76,6 @@ section:last-child {
   display: table-cell;
 }
 
-.continuous {
-  /*display: table-row;*/
-  background: linear-gradient(to right, #ffffcc, #c7e9b4, #7fcdbb,
-  #41b6c4, #1d91c0, #225ea8, #0c2c84);
-}
-
 .mapLegend li.min {
   float: left;
   margin: 0 0 5px;
