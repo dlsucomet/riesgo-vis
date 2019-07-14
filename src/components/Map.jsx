@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
-import { chapters } from '../config/options';
+import { chapters, floodStops } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
@@ -367,7 +367,7 @@ export default class Map extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      chapterName, amenity, buildingType, layer,
+      chapterName, amenity, buildingType, layer, floodYear,
     } = this.props;
 
     if (this.map.isStyleLoaded()) {
@@ -433,6 +433,15 @@ export default class Map extends React.Component {
           }
         }
       }
+
+      if (nextProps.floodYear) {
+        if (nextProps.floodYear !== floodYear) {
+          this.map.setPaintProperty('flood', 'fill-color', {
+            property: nextProps.floodYear,
+            stops: floodStops,
+          });
+        }
+      }
     }
   }
 
@@ -487,4 +496,5 @@ Map.propTypes = {
   buildingType: PropTypes.string.isRequired,
   amenity: PropTypes.string.isRequired,
   layer: PropTypes.string.isRequired,
+  floodYear: PropTypes.string.isRequired,
 };

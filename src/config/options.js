@@ -168,8 +168,10 @@ const chapters = {
       },
     ],
     position: {
-      center: [121.0974737857415, 14.651397521228759],
-      zoom: 14.5,
+      // center: [121.0974737857415, 14.651397521228759],
+      // zoom: 14.5,
+      center,
+      zoom,
       bearing: 0,
       pitch: 0,
       duration: 800,
@@ -506,6 +508,28 @@ const filters = {
       ],
     },
   ],
+  typhoon: [
+    {
+      hasAll: false,
+      value: 'floodYear',
+      label: 'Flood Hazard Return Period',
+      onChange: 'updateFloodYear',
+      options: [
+        {
+          label: '5-year',
+          value: 'fhm005yrs',
+        },
+        {
+          label: '25-year',
+          value: 'fhm025yrs',
+        },
+        {
+          label: '100-year',
+          value: 'fhm100yrs',
+        },
+      ],
+    },
+  ],
   evacuation: [
     {
       hasAll: true,
@@ -592,6 +616,13 @@ const chapterLayers = {
   coverage: ['radius'],
 };
 
+const floodStops = [
+  [1, '#e31a1c'],
+  [2, '#fd8d3c'],
+  [3, '#fecc5c'],
+  [4, '#ffffb2'],
+];
+
 export {
-  chapters, legendLabels, filters, legendOptions, chapterLayers,
+  chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
 };

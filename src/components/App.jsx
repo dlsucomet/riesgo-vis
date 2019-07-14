@@ -12,12 +12,14 @@ export default class App extends React.Component {
       buildingType: 'all',
       amenity: 'all',
       layer: 'flood',
+      floodYear: 'fhm005yrs',
     };
 
     this.updateChapter = this.updateChapter.bind(this);
     this.updateAmenity = this.updateAmenity.bind(this);
     this.updateBuildingType = this.updateBuildingType.bind(this);
     this.updateLayer = this.updateLayer.bind(this);
+    this.updateFloodYear = this.updateFloodYear.bind(this);
   }
 
   updateChapter = (chapterName) => {
@@ -51,9 +53,15 @@ export default class App extends React.Component {
     });
   }
 
+  updateFloodYear = (event) => {
+    this.setState({
+      floodYear: event.target.value,
+    });
+  }
+
   render() {
     const {
-      chapterName, buildingType, amenity, layer,
+      chapterName, buildingType, amenity, layer, floodYear,
     } = this.state;
 
     return (
@@ -63,6 +71,7 @@ export default class App extends React.Component {
           buildingType={buildingType}
           amenity={amenity}
           layer={layer}
+          floodYear={floodYear}
         />
         <Panel
           chapterName={chapterName}
@@ -73,9 +82,11 @@ export default class App extends React.Component {
           buildingType={buildingType}
           amenity={amenity}
           layer={layer}
+          floodYear={floodYear}
           updateAmenity={this.updateAmenity}
           updateBuildingType={this.updateBuildingType}
           updateLayer={this.updateLayer}
+          updateFloodYear={this.updateFloodYear}
         />
       </div>
     );
