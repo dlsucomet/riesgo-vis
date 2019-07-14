@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
+import MapTooltip from './MapTooltip';
 import { chapters } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
@@ -21,6 +23,8 @@ export default class Map extends React.Component {
     const {
       lng, lat, zoom,
     } = this.state;
+
+    const { chapterName } = this.props;
 
     // Container to put React generated content in.
     this.tooltipContainer = document.createElement('div'); // eslint-disable-line
@@ -61,7 +65,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('buildings', {
         type: 'vector',
-        url: 'mapbox://unissechua.aauphgra',
+        url: 'mapbox://unissechua.bqwm77y2',
       });
 
       this.map.addSource('boundary', {
@@ -229,9 +233,6 @@ export default class Map extends React.Component {
         type: 'fill',
         source: 'riesgo',
         'source-layer': 'riesgo',
-        // layout: {
-        //   visibility: 'none',
-        // },
         paint: {
           'fill-color': {
             property: 'roaddistance',
@@ -253,21 +254,17 @@ export default class Map extends React.Component {
         },
       }, 'waterway');
 
-      // this.map.addLayer({
-      //   id: 'buildings',
-      //   type: 'fill',
-      //   source: 'buildings',
-      //   'source-layer': 'marikina_structures',
-      //   paint: {
-      //     'fill-color': '#000000',
-      //     'fill-opacity': 1,
-      //     'fill-outline-color': '#000000',
-      //   },
-      //   // layout: {
-      //   //   'icon-image': 'college-15',
-      //   // },
-      //   filter: ['==', 'building', 'house']
-      // }, 'waterway');
+      this.map.addLayer({
+        id: 'buildings',
+        type: 'fill',
+        source: 'buildings',
+        'source-layer': 'marikina_buildings_features',
+        paint: {
+          'fill-color': '#38316e',
+          'fill-opacity': 0,
+          'fill-outline-color': '#38316e',
+        },
+      }, 'waterway');
 
       this.map.addLayer({
         id: 'labels',
@@ -317,11 +314,11 @@ export default class Map extends React.Component {
     });
 
 
-    // this.tooltipContainer = document.createElement('div');
-    //
-    // const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
-    //   offset: [0, -95],
-    // }).setLngLat([0, 0]).addTo(this.map);
+    this.tooltipContainer = document.createElement('div');
+
+    const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
+      offset: [0, -40],
+    }).setLngLat([0, 0]).addTo(this.map);
 
     this.map.on('click', (e) => {
       console.log(e);
@@ -344,11 +341,21 @@ export default class Map extends React.Component {
     //   // this.setTooltip(features);
     });
     //
-    // this.map.on('mousemove', (e) => {
-    //   const features = this.map.queryRenderedFeatures(e.point, { layers: ['unclustered-point'] });
-    //
-    //   this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-    // });
+    this.map.on('mousemove', (e) => {
+      const { chapterName } = this.props;
+      const features = this.map.queryRenderedFeatures(e.point, { layers: ['buildings'] });
+
+      if (features.length > 0) {
+        const selected = features[0].properties;
+
+        if (selected.building !== undefined) {
+          this.map.getCanvas().style.cursor = features.length ? 'default' : '';
+        }
+      }
+
+      tooltip.setLngLat(e.lngLat);
+      this.setTooltip(features, chapterName);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -373,6 +380,13 @@ export default class Map extends React.Component {
         })
 
         this.map.easeTo(position);
+
+        // Try filter buildings based on chapterName
+        if (nextProps.chapterName === 'typhoon') {
+          this.map.setFilter('buildings', ['<=', 'fhm005yrs', 2]);
+        } else {
+          this.map.setFilter('buildings', undefined);
+        }
       }
 
       if (nextProps.amenity) {
@@ -387,8 +401,7 @@ export default class Map extends React.Component {
 
       if (nextProps.buildingType) {
         if (nextProps.buildingType !== buildingType) {
-          // Uncomment once building layer is available
-          // this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
+          this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
         }
       }
 
@@ -460,20 +473,20 @@ export default class Map extends React.Component {
    * @param {object} features - queried features from the map
    * @public
    */
-  // setTooltip(features) {
-  //   if (features.length) {
-  //     ReactDOM.render(
-  //       React.createElement(
-  //         MapCard, {
-  //           features,
-  //         },
-  //       ),
-  //       this.tooltipContainer,
-  //     );
-  //   } else {
-  //     ReactDOM.unmountComponentAtNode(this.tooltipContainer);
-  //   }
-  // }
+  setTooltip(features, chapterName) {
+    if (features.length) {
+      ReactDOM.render(
+        React.createElement(
+          MapTooltip, {
+            features, chapterName
+          },
+        ),
+        this.tooltipContainer,
+      );
+    } else {
+      ReactDOM.unmountComponentAtNode(this.tooltipContainer);
+    }
+  }
   //
   // updateStyle() {
   //   // const { circleColor, strokeColor } = this.state.colors;
@@ -504,3 +517,10 @@ export default class Map extends React.Component {
     );
   }
 }
+
+Map.propTypes = {
+  chapterName: PropTypes.string.isRequired,
+  buildingType: PropTypes.string.isRequired,
+  amenity: PropTypes.string.isRequired,
+  layer: PropTypes.string.isRequired,
+};
