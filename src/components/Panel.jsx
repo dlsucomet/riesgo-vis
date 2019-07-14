@@ -54,11 +54,11 @@ export default class Panel extends React.Component {
         <section id="marikina" className='active'>
           <Typography variant="h3">Marikina City</Typography>
           <Typography>
-            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
+            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level.
           </Typography>
           <br></br>
           <Typography>
-            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
+          Like the rest of the country, Marikina experiences a tropical monsoon climate with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
           </Typography>
         </section>
         <section id="land">
@@ -73,19 +73,27 @@ export default class Panel extends React.Component {
         </section>
         <section id="typhoon">
           <Typography variant="h3">New Normal</Typography>
-          <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+          </Typography>
         </section>
         <section id="evacuation">
           <Typography variant="h3">Evacuation during Ondoy</Typography>
-          <Typography>Nam gravida sodales turpis, at facilisis augue fringilla nec. Maecenas a sem semper, iaculis ante ac, lobortis est. Pellentesque nec vestibulum sapien, quis dictum enim. Etiam id dolor interdum, iaculis orci posuere, dapibus tellus. Nullam metus augue, posuere sed dapibus nec, varius vitae purus. Morbi non dapibus sem. Suspendisse at pretium quam. Praesent fringilla nisi non diam vehicula pharetra. Etiam ullamcorper porta metus id vehicula. Donec maximus dolor neque, vitae consectetur magna luctus ac. Vivamus ante augue, maximus eu tincidunt eu, pellentesque eget tellus. Cras sollicitudin porta dui ac tempor. Proin scelerisque auctor felis, in pulvinar ipsum semper et. Vivamus ut venenatis nunc. Donec sapien leo, pellentesque ac ex eget, dictum luctus ante. In vulputate ante et sollicitudin cursus.</Typography>
+          <Typography>
+            Nam gravida sodales turpis, at facilisis augue fringilla nec. Maecenas a sem semper, iaculis ante ac, lobortis est. Pellentesque nec vestibulum sapien, quis dictum enim. Etiam id dolor interdum, iaculis orci posuere, dapibus tellus. Nullam metus augue, posuere sed dapibus nec, varius vitae purus. Morbi non dapibus sem. Suspendisse at pretium quam. Praesent fringilla nisi non diam vehicula pharetra. Etiam ullamcorper porta metus id vehicula. Donec maximus dolor neque, vitae consectetur magna luctus ac. Vivamus ante augue, maximus eu tincidunt eu, pellentesque eget tellus. Cras sollicitudin porta dui ac tempor. Proin scelerisque auctor felis, in pulvinar ipsum semper et. Vivamus ut venenatis nunc. Donec sapien leo, pellentesque ac ex eget, dictum luctus ante. In vulputate ante et sollicitudin cursus.
+          </Typography>
         </section>
         <section id="population">
           <Typography variant="h4">Capacity of Evacuation Centers and Surrounding Population</Typography>
-          <Typography>Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.</Typography>
+          <Typography>
+            Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.
+          </Typography>
         </section>
         <section id="accessibility">
           <Typography variant="h3">Accessibility</Typography>
-          <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+          </Typography>
         </section>
       </div>
     );
