@@ -83,11 +83,12 @@ export default class Map extends React.Component {
 
       this.map.addLayer({
         id: 'boundary',
-        type: 'fill',
+        type: 'line',
         source: 'boundary',
         paint: {
-          'fill-color': '#c46806',
-          'fill-opacity': 0,
+          'line-color': '#090909',
+          'line-opacity': 0,
+          'line-width': 2,
         },
       }, 'waterway');
 
@@ -252,6 +253,7 @@ export default class Map extends React.Component {
               [30, '#bd0026'],
             ],
           },
+          'fill-outline-color': '#090909',
           'fill-opacity': 0,
           'fill-opacity-transition': {
             duration: 800,
@@ -344,9 +346,25 @@ export default class Map extends React.Component {
       offset: [0, -40],
     }).setLngLat([0, 0]).addTo(this.map);
 
-    // this.map.on('click', (e) => {
-    //
-    // });
+    this.map.on('click', (e) => {
+      const { chapterName } = this.props;
+
+      // Do only for accessibility story
+      if (chapterName === 'accessibility') {
+        const features = this.map.queryRenderedFeatures(e.point, { layers: ['evacuation'] });
+
+        if (features.length > 0) {
+          const selected = features[0].properties;
+
+          if (selected.osm_id !== undefined) {
+            this.map.getCanvas().style.cursor = features.length ? 'default' : '';
+
+            // Set filter for isochrones depending on the osm_id
+            this.map.setFilter('walking', ['==', 'osm_id', selected.osm_id]);
+          }
+        }
+      }
+    });
 
     this.map.on('mousemove', (e) => {
       const { chapterName } = this.props;
@@ -367,7 +385,7 @@ export default class Map extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      chapterName, amenity, buildingType, layer, floodYear,
+      chapterName, amenity, buildingType, layer, floodYear, minutes,
     } = this.props;
 
     if (this.map.isStyleLoaded()) {
@@ -440,6 +458,12 @@ export default class Map extends React.Component {
             property: nextProps.floodYear,
             stops: floodStops,
           });
+        }
+      }
+
+      if (nextProps.minutes) {
+        if (nextProps.minutes !== minutes) {
+          this.map.setFilter('walking', ['==', 'AA_MINS', nextProps.minutes]);
         }
       }
     }

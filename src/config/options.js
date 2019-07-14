@@ -409,7 +409,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 0,
+        opacity: 1,
       },
       {
         id: 'landelevation3d',
@@ -437,7 +437,7 @@ const chapters = {
       },
       {
         id: 'walking',
-        opacity: 0.5,
+        opacity: 0.3,
       },
     ],
     layout: [
@@ -564,6 +564,40 @@ const filters = {
         {
           label: 'Flood Hazard Map',
           value: 'flood',
+        },
+      ],
+    },
+  ],
+  accessibility: [
+    {
+      hasAll: false,
+      value: 'minutes',
+      label: 'Minutes to Walk',
+      onChange: 'updateMinutes',
+      options: [
+        {
+          label: '5',
+          value: 5,
+        },
+        {
+          label: '10',
+          value: 10,
+        },
+        {
+          label: '15',
+          value: 15,
+        },
+        {
+          label: '20',
+          value: 20,
+        },
+        {
+          label: '25',
+          value: 25,
+        },
+        {
+          label: '30',
+          value: 30,
         },
       ],
     },
