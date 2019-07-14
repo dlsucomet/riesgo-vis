@@ -54,16 +54,26 @@ export default class Panel extends React.Component {
         <section id="marikina" className='active'>
           <Typography variant="h3">Marikina City</Typography>
           <Typography>
-            A highly urbanized city in Metro Manila, Philippines, it lies in a valley surrounded by the mountains of Sierra Madre and the hills of Quezon City, with Marikina river running through it. Like the rest of the country, Marikina experiences a tropical monsoon climate.
+            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
+          </Typography>
+          <br></br>
+          <Typography>
+            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
           </Typography>
         </section>
         <section id="land">
-          <Typography variant="h3">Marikina City</Typography>
-          <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</Typography>
+          <Typography variant="h3">A River Runs through It</Typography>
+          <Typography>
+            The Marikina River runs at the heart of the city, draining off rain water through its tributaries to Laguna de Bay. In its 38 kilometer stretch, its depth ranges from 3 to 21 meters, and its segments can span from 70 to 120 meters. Because it runs through to the lower stretch of the basin, the riverbanks only have elevations as high as 8 down to 2 meters above sea level. 
+          </Typography>
+          <br></br>
+          <Typography>
+            Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. This coupled with the constant threat of flooding, Marikina has been the focus of the national government’s efforts for flood control and disaster management. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River">Wikipedia</a></i>)
+          </Typography>
         </section>
         <section id="typhoon">
-          <Typography variant="h3">Super typhoon Ondoy</Typography>
-          <Typography>Fusce varius, lorem vel cursus facilisis, mi velit mollis quam, quis accumsan nisl nisi a enim. Vestibulum fermentum, lorem quis auctor pulvinar, ante velit pellentesque leo, ac molestie arcu sapien vel enim. In at pellentesque odio. Maecenas ultrices justo vitae mauris cursus ultrices. Fusce mattis tempus arcu. Curabitur elementum convallis leo quis lacinia. Quisque pretium odio a libero dapibus bibendum. Vestibulum mollis ac sapien et sagittis. Duis ac volutpat felis, vel aliquam ex. In diam orci, malesuada nec porttitor nec, aliquam ut urna. Nam urna augue, hendrerit consequat euismod et, facilisis sit amet arcu. Donec ut gravida massa. Quisque felis magna, dignissim nec mauris a, blandit imperdiet felis. Morbi mollis dui ac felis rhoncus, auctor dignissim leo convallis. Curabitur velit ante, aliquam eget porta non, hendrerit quis magna. Duis velit neque, malesuada non fermentum ac, dignissim non sem.</Typography>
+          <Typography variant="h3">New Normal</Typography>
+          <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.</Typography>
         </section>
         <section id="evacuation">
           <Typography variant="h3">Evacuation during Ondoy</Typography>
