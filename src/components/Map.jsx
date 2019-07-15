@@ -50,7 +50,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('evacuation', {
         type: 'vector',
-        url: 'mapbox://unissechua.9hp5dege',
+        url: 'mapbox://unissechua.58fifmkf',
       });
 
       this.map.addSource('landelevation', {
@@ -224,7 +224,7 @@ export default class Map extends React.Component {
         id: 'evacuation',
         type: 'symbol',
         source: 'evacuation',
-        'source-layer': 'evacuation_centers',
+        'source-layer': 'marikina_evac_centers',
         layout: {
           visibility: 'none',
           'icon-image': '{icon}-15',
@@ -423,6 +423,7 @@ export default class Map extends React.Component {
 
             // Set filter for isochrones depending on the osm_id
             this.map.setFilter('walking', ['==', 'osm_id', selected.osm_id]);
+            console.log(selected.osm_id);
           }
         }
       }
