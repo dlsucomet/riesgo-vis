@@ -1,5 +1,7 @@
 # RIESGO Interactive Visualization
 
+View the project: https://comet.dlsu.edu.ph/riesgo-vis/
+
 Status: Work in progress
 
 An interactive dashboard to visualize the results RIESGO: A Multi-Criteria Model to Identify Suitable Flood Evacuation Areas
