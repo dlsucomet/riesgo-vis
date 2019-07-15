@@ -752,6 +752,13 @@ const legendLabels = {
   landelevation3d: 'Land Elevation',
 };
 
+const buildingMap = {
+  residential: ['house', 'residential'],
+  private: ['commercial', 'retail', 'mall'],
+  health: ['hospital'],
+  education: ['school', 'college'],
+};
+
 const filters = {
   land: [
     {
@@ -762,35 +769,19 @@ const filters = {
       options: [
         {
           label: 'Residential',
-          value: 'house',
-        },
-        {
-          label: 'Condominium',
           value: 'residential',
         },
         {
-          label: 'Office Building',
-          value: 'commercial',
+          label: 'Private',
+          value: 'private',
         },
         {
-          label: 'School',
-          value: 'school',
+          label: 'Health',
+          value: 'health',
         },
         {
-          label: 'Retail',
-          value: 'retail',
-        },
-        {
-          label: 'College',
-          value: 'college',
-        },
-        {
-          label: 'Mall',
-          value: 'mall',
-        },
-        {
-          label: 'Hospital',
-          value: 'hospital',
+          label: 'Education',
+          value: 'education',
         },
       ],
     },
@@ -985,5 +976,5 @@ const suitabilityStops = [
 
 export {
   chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
-  suitabilityStops,
+  suitabilityStops, buildingMap,
 };

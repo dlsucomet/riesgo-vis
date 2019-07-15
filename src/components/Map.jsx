@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
-import { chapters, floodStops, suitabilityStops } from '../config/options';
+import {
+  chapters, floodStops, suitabilityStops, buildingMap,
+} from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
@@ -497,7 +499,9 @@ export default class Map extends React.Component {
       if (nextProps.buildingType) {
         if (nextProps.buildingType !== buildingType) {
           if (nextProps.buildingType !== 'all') {
-            this.map.setFilter('buildings', ['==', 'building', nextProps.buildingType]);
+            const filter = ['in', 'building'];
+
+            this.map.setFilter('buildings', filter.concat(buildingMap[nextProps.buildingType]));
           } else {
             this.map.setFilter('buildings', undefined);
           }
