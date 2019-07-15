@@ -81,33 +81,45 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
         </section>
         <section id="typhoon">
-          <Typography variant="h3">Ondoy, the New Normal</Typography>
+          <Typography variant="h3">T.S. Ondoy</Typography>
           <Typography>
             Like a shield to its southeast asian neighbors, the Philippines welcomes around twenty tropical cyclones in its area of responsibility. Around ten of them become actual typhoons and make landfall, with five of those potentially bringing destructive winds and heavy rains. This makes the Philippines the most exposed to tropical storms &mdash; an unfortunate record to bear (<i>Source: <a href="https://en.wikipedia.org/wiki/Typhoons_in_the_Philippines" target="_blank">Wikipedia</a>, <a href="http://world.time.com/2013/11/11/the-philippines-is-the-most-storm-exposed-country-on-earth/" target="_blank">Time</a></i>).
           </Typography>
           <br></br>
           <Typography variant="h6">EXTENT &amp; IMPACT</Typography>
           <Typography>
-            On September 26, 2009, tropical storm “Ondoy” (typhoon “Ketsana”) made landfall and for 12 hours, flooded Metro Manila and Central Luzon. Catching everyone by surprise, it continuously dumped around 341 mm (14 in) of rain in just 6 hours and within 24 hours, a record-high 455 mm (17.9 in) of rainfall was reported. Considered as the worst flooding with heights that reached around 20 feet, its extent reached 14/16 <i>barangays</i> (towns), drowned around 464 people, and caused around 11 billion pesos in damages (<i>Source: <a href="https://en.wikipedia.org/wiki/Typhoon_Ketsana" target="_blank">Wikipedia</a>, <a href="https://newsinfo.inquirer.net/818907/special-report-on-storm-ondoy-marikina-remembers-end-of-the-world" target="_blank">Inquirer</a></i>).
+            On September 26, 2009, tropical storm “Ondoy” (typhoon “Ketsana”) made landfall and for 12 hours, flooded Metro Manila and Central Luzon. Catching everyone by surprise, it continuously dumped around 341 mm (14 in) of rain in just 6 hours and within 24 hours, a record-high 455 mm (17.9 in) of rainfall was reported. In its aftermath, around 464 people drowned and 11 billion pesos worth of infrastructure and agriculture were damaged (<i>Source: <a href="https://en.wikipedia.org/wiki/Typhoon_Ketsana" target="_blank">Wikipedia</a>, <a href="https://newsinfo.inquirer.net/818907/special-report-on-storm-ondoy-marikina-remembers-end-of-the-world" target="_blank">Inquirer</a></i>).
           </Typography>
           <br></br>
-          <Typography variant="h6">NEW NORMAL</Typography>
+          <Typography variant="h6">MARIKINA, HARDEST HIT</Typography>
           <Typography>
-            While Ondoy was not the wettest nor deadliest in recorded history, the large amount of rain it brought over the national capital region in a short span of time was a definite cause of concern. So much so that the Philippines instituted a more comprehensive working group, the National Disaster Risk Reduction and Management Council, and ramped up the production of flood hazard maps based on the Ondoy aftermath. Since then, people now anticipate and prepare for Ondoy-like flooding whenever new typhoons make landfall. At the same time, disaster preparedness and management for the capital region uses Ondoy as an effective baseline.
+            With almost a month’s worth of rainfall that befell in less than a day, Marikina river rose to 23 meters above sea level. Considered as the worst flooding with heights that reached around 20 feet, its extent reached 14 of Marikina’s 16 <i>barangays</i> (towns). Many of its health centers were flooded, damaging their stocks of medicine and equipment. Marikina suffered 70 deaths and 27 million pesos in damages, making it one of the hardest hit cities in Metro Manila.  (<i>Source: <a href="https://newsinfo.inquirer.net/818907/special-report-on-storm-ondoy-marikina-remembers-end-of-the-world" target="_blank">Inquirer</a>, <a href="https://reliefweb.int/report/philippines/philippines-typhoon-ondoy-health-cluster-situation-report-1" target="_blank">Reliefweb</a></i>).
           </Typography>
         </section>
         <section id="evacuation">
-          <Typography variant="h3">Evacuation during Ondoy</Typography>
+          <Typography variant="h3">Evacuation</Typography>
           <Typography>
-            Nam gravida sodales turpis, at facilisis augue fringilla nec. Maecenas a sem semper, iaculis ante ac, lobortis est. Pellentesque nec vestibulum sapien, quis dictum enim. Etiam id dolor interdum, iaculis orci posuere, dapibus tellus. Nullam metus augue, posuere sed dapibus nec, varius vitae purus. Morbi non dapibus sem. Suspendisse at pretium quam. Praesent fringilla nisi non diam vehicula pharetra. Etiam ullamcorper porta metus id vehicula. Donec maximus dolor neque, vitae consectetur magna luctus ac. Vivamus ante augue, maximus eu tincidunt eu, pellentesque eget tellus. Cras sollicitudin porta dui ac tempor. Proin scelerisque auctor felis, in pulvinar ipsum semper et. Vivamus ut venenatis nunc. Donec sapien leo, pellentesque ac ex eget, dictum luctus ante. In vulputate ante et sollicitudin cursus.
+            Completely unaware, many families in low lying areas were stranded in their upper floors while others climbed to their roofs. In Marikina, around 14 to 23 available schools and evacuation centers took people in, as well as some churches. While many scrambled to these locations as it rained, there were anecdotal reports that some of these experienced flooding as well. As we prepare for more typhoons and monsoon rains like those brought by Ondoy, <span class="highlight">how suitable are the current evacuation centers and their locations in sheltering Marikina’s citizens from peril?</span>
+          </Typography>
+          <br></br>
+          <Typography>
+            First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons. 
+          </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <br></br>
+          <Typography>
+            While these buildings might seem practical for a few days of stay, there are always concerns whether there is enough space and provisions for privacy, proper sanitation and healthcare. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance. 
           </Typography>
         </section>
         <section id="population">
-          <Typography variant="h4">Population of Marikina</Typography>
-          <Typography>Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.</Typography>
+          <Typography variant="h3">Population</Typography>
+          <Typography>
+            Marikina City has a population of 450,741. How much of the population is exposed to hazard?
+          </Typography>
         </section>
         <section id="coverage">
-          <Typography variant="h4">Coverage of Evacuation Centers (400m radius)</Typography>
+          <Typography variant="h3">Ideal Coverage</Typography>
           <Typography>Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.</Typography>
         </section>
         <section id="capacity">
@@ -116,6 +128,24 @@ export default class Panel extends React.Component {
         </section>
         <section id="accessibility">
           <Typography variant="h3">Accessibility</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+          </Typography>
+        </section>
+        <section id="suitability">
+          <Typography variant="h3">Suitability</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+          </Typography>
+        </section>
+        <section id="good-place">
+          <Typography variant="h3">The Good Places</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+          </Typography>
+        </section>
+        <section id="conclusion">
+          <Typography variant="h3">Moving Forward</Typography>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
           </Typography>
