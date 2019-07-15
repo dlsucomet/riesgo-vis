@@ -103,13 +103,18 @@ export default class Panel extends React.Component {
           </Typography>
           <br></br>
           <Typography>
-            First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons.
+            First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons. 
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/evac_centers.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
             While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
+          </Typography>
+          <br></br>
+          <Typography variant="h6">HAZARD EXPOSURE</Typography>
+          <Typography>
+            Twelve evacuation centers are located in medium to high hazard areas for a 5-year flood return period, almost a third of their number. This jumps to 21 evacuation centers for a 100-year return period, fifteen of which are schools. While many of these schools are multi-storey buildings with at least 3-4 floors, evacuees in these shelters can still get stranded and make them unable to access other critical facilities nearby.
           </Typography>
         </section>
         <section id="population">
@@ -189,7 +194,20 @@ export default class Panel extends React.Component {
         <section id="conclusion">
           <Typography variant="h3">Moving Forward</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+            In this analysis of Marikina's evacuation centers, we have illustrated how unsuitable many of them are in terms of their <span class="highlight">medium to high exposure to flooding</span> and <span class="highlight">incapacity to serve nearby residents</span>. We then tried to look into the the suitability of other areas, hoping to find <span class="highlight">viable locations for new evacuation centers</span>. We found Marikina Heights as the most viable location for evacuation centers. But anything built there cannot serve other densely populated areas. 
+          </Typography>
+          <br></br>
+          <Typography>
+            What about other suitable locations but are already built up land? There is always the option of finding existing buildings other than schools and covered courts that can also serve as shelters. However, we highly suggest that Marikina explore <span class="highlight">developing multipurpose buildings</span> like those built in Singapore to account for the lack of space in many residential areas. 
+          </Typography>
+          <br></br>
+          <Typography> 
+            While Marikina can be lauded in the herculean task of effectively instituting information campaigns and building flood control infrastructures, it is also important that they look into critical infrastructures that are heavily utilized at the onset, during and soon after a typhoon or flooding. Although these are temporary relief, evacuees' experiences in these shelters will definitely set the tone for their successful return and recovery.
+          </Typography>
+          <br></br>
+          <Typography variant="h6">THANK YOU!</Typography>
+          <Typography>
+            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> and <span class="highlight">Unisse C. Chua</span>, both from the Center for Complexity and Emerging Technologies in De La Salle University, Philippines. This was also done with the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
           </Typography>
         </section>
       </div>
