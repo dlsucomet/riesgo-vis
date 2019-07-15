@@ -443,14 +443,6 @@ export default class Map extends React.Component {
       tooltip.setLngLat(e.lngLat);
       this.setTooltip(features, chapterName);
     });
-
-    this.map.on('draw.create', (e) => {
-
-      const userPolygon = e.features[0];
-      // generate bounding box from polygon the user drew
-      const polygonBoundingBox = bbox(userPolygon);
-      console.log(polygonBoundingBox);
-    });
   }
 
   componentWillReceiveProps(nextProps) {
