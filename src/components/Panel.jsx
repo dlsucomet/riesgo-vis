@@ -109,18 +109,36 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
+<<<<<<< HEAD
             While these buildings might seem practical for a few days of stay, there are always concerns whether there is enough space and provisions for privacy, proper sanitation and healthcare. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
+=======
+            While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance. 
+>>>>>>> ea17c584af0df76b4234b5c3ef83cdfe9ce1b026
           </Typography>
         </section>
         <section id="population">
           <Typography variant="h3">Population</Typography>
           <Typography>
-            Marikina City has a population of 450,741. How much of the population is exposed to hazard?
+            Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span> 
+          </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <br></br>
+          <Typography>
+            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively. 
           </Typography>
         </section>
         <section id="coverage">
           <Typography variant="h3">Ideal Coverage</Typography>
-          <Typography>Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.</Typography>
+          <Typography>
+            If we draw 400 m circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider them as the ideal number of people that each evacuation center should be able to shelter in times of disaster. Overall, 86% of the population are in close proximity to at least one evacuation center.
+          </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <br></br>
+          <Typography>
+            There are also many evacuation centers that overlap ideal coverage, which can be a good thing for citizens. There are around 35% of the population with at least two evacuation centers nearby, and 3% of them are near to four shelters. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas. 
+          </Typography>
         </section>
         <section id="capacity">
           <Typography variant="h4">Capacity of Evacuation Centers</Typography>
