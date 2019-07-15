@@ -31,11 +31,37 @@ precip %>%
 ggsave("assets/precip.png", width=6, height=2, bg = "transparent")
 ```
 
+## Elevation
+
+```{r}
+path <- file.path("landelevation.csv")
+elev <- read.csv(path, stringsAsFactors = FALSE)
+
+elev %>% 
+  select(-geometry) %>% 
+  group_by(value) %>% 
+  count() %>% 
+  ggplot(aes(x = value, y = n, fill = value)) +
+  geom_col() +
+  scale_fill_distiller(palette = "YlGnBu", direction = 1, guide = FALSE) +
+  scale_x_continuous(breaks = c(2, 15, 69), 
+                     labels = c("2 m", "15 m", "69 m")) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.text.y = element_blank()) +
+  labs(x = "",
+       y = "")
+
+ggsave("assets/elevation.png", width=6, height=2, bg = "transparent")
+```
+
+
 ## Buildings
 
 ```{r}
-path <- file.path("../outputs/atemporal-analysis/results_centralities.csv")
-results <- read.csv(path, stringsAsFactors = FALSE)
+
 ```
 
 

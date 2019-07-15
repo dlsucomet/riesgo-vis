@@ -58,7 +58,7 @@ export default class Panel extends React.Component {
             A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. Situated near the center of the Pasig-Marikina river basin, most of the city sits at an elevation of <span class="highlight">15 meters above sea level</span>.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/elevation.png" alt="Distribution of land elevations"></img>
           <br></br>
           <Typography variant="h6">CLIMATE &amp; ANNUAL PRECIPITATION</Typography>
           <Typography>
@@ -127,7 +127,7 @@ export default class Panel extends React.Component {
         <section id="coverage">
           <Typography variant="h3">Ideal Coverage</Typography>
           <Typography>
-            If we draw 400 m circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider them as the ideal number of people that each evacuation center should be able to shelter in times of disaster. Overall, 86% of the population are in close proximity to at least one evacuation center.
+            If we draw 400 m circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider these as the ideal number of people that each evacuation center should be able to shelter in times of disaster. Currently, 86% of the population are in close proximity to at least one evacuation center.
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
@@ -137,8 +137,10 @@ export default class Panel extends React.Component {
           </Typography>
         </section>
         <section id="capacity">
-          <Typography variant="h4">Capacity of Evacuation Centers</Typography>
-          <Typography>Quisque accumsan augue leo, id ultricies arcu pharetra sed. Nulla facilisi. Aenean tincidunt, mauris non congue maximus, magna turpis lacinia tellus, ac porttitor sapien ante eget risus. Vestibulum sed tincidunt lacus. Morbi ut auctor erat, id dapibus massa. Nunc dignissim tincidunt fringilla. Nunc quis dui sapien. Phasellus eget finibus tellus, sed condimentum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc lacus lorem, cursus vitae sapien in, iaculis sodales nibh. Donec venenatis tellus libero, quis imperdiet risus porta ut. Etiam fermentum nulla quam, ut suscipit leo placerat a. Vivamus imperdiet tortor sem, nec congue tortor fringilla et. Vestibulum quis enim sed velit euismod fringilla.</Typography>
+          <Typography variant="h3">Estimated Capacity</Typography>
+          <Typography>
+            
+          </Typography>
         </section>
         <section id="accessibility">
           <Typography variant="h3">Accessibility</Typography>
