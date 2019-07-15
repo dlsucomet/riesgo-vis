@@ -127,25 +127,31 @@ export default class Panel extends React.Component {
         <section id="coverage">
           <Typography variant="h3">Ideal Coverage</Typography>
           <Typography>
-            If we draw 400 m circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider these as the ideal number of people that each evacuation center should be able to shelter in times of disaster. Currently, 86% of the population are in close proximity to at least one evacuation center.
+            If we draw <span class="highlight">400 m</span> circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider these as the <span class="highlight">ideal number of people that each evacuation center should be able to shelter</span> in times of disaster. Currently, <span class="highlight">86%</span> of the population are in close proximity to at least one evacuation center.
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/ideal_coverage.png" alt="Population covered within 400 meters"></img>
           <br></br>
           <Typography>
-            There are also many evacuation centers that overlap ideal coverage, which can be a good thing for citizens. There are around 35% of the population with at least two evacuation centers nearby, and 3% of them are near to four shelters. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas.
+            There are also many evacuation centers that <span class="highlight">overlap ideal coverage</span>, which can be a good thing for citizens. There are around <span class="highlight">35%</span> of the population with at least two evacuation centers nearby, and <span class="highlight">3% of them are near to four shelters</span>. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas.
           </Typography>
         </section>
         <section id="capacity">
           <Typography variant="h3">Estimated Capacity</Typography>
           <Typography>
-            
+            Now that we know the ideal number of people that each evacuation should serve, <span class="highlight">how many can they actually fit?</span> We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (<span class="highlight">5 sqm of space per person</span>). All locations had an estimated capacity <span class="highlight">way below their ideal coverage</span>, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of <span class="highlight">10,416 people</span> that will underserved per evacuation center.
+          </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/sampaguita_gym.png" alt="Sampaguita Gym in Marikina"></img>
+          <br></br>
+          <Typography>
+            To illustrate some of these differences, <span class="highlight">Sampaguita Gym</span> has an estimated capacity of only <span class="highlight">123 people</span> evacuating and staying comfortably in its vicinity. However, because of the dense population within close proximity, it needs to serve <span class="highlight">168 times more people</span>. While Malanday National HS, Malanday Elementary School and Filipinas Gym are other nearby options, they too are well below their capacities, with <span class="highlight">Filipinas Gym</span> expected to shelter <span class="highlight">127 times more</span>. <i>(Photo credit: Google Streetview)</i>
           </Typography>
         </section>
         <section id="accessibility">
           <Typography variant="h3">Accessibility</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+            Now that we know the ideal number of people that each evacuation should serve, how many can they actually fit? We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (5 sqm of space per person). All locations had an estimated capacity way below their ideal coverage, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of 10,416 people that will underserved per evacuation center.
           </Typography>
         </section>
         <section id="suitability">
