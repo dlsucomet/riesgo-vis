@@ -86,7 +86,7 @@ buildings %>%
   geom_col() +
   coord_flip() +
   scale_y_log10() +
-  scale_fill_brewer(palette = "Set2", direction = 1, guide = FALSE) +
+  scale_fill_brewer(palette = "Paired", direction = 1, guide = FALSE) +
   theme_tufte(base_family = "Avenir", ticks = FALSE) +
   theme(panel.background = element_rect(fill = "transparent",colour = NA),
         plot.background = element_rect(fill = "transparent",colour = NA),
@@ -97,5 +97,35 @@ buildings %>%
 ggsave("assets/buildings.png", width=6, height=3, bg = "transparent")
 ```
 
+
+## Evac Centers
+
+```{r}
+path <- file.path("marikina_evac_centers.csv")
+evac <- read.csv(path, stringsAsFactors = FALSE)
+
+evac %>% 
+  select(osm_id, amenity) %>% 
+  mutate(amenity = case_when(amenity == "school" ~ "School",
+                              amenity == "community_centre" ~ "Community Center",
+                              amenity == "basketball_court" ~ "Covered Court")) %>% 
+  mutate(amenity = as.character(amenity)) %>% 
+  mutate(amenity = factor(amenity,
+                           levels = c("School", "Community Center", "Covered Court"))) %>% 
+  group_by(amenity) %>% 
+  count() %>% 
+  ggplot(aes(x = amenity, y = n, fill = amenity)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_brewer(palette = "Paired", direction = 1, guide = FALSE) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black")) +
+  labs(x = "",
+       y = "Number of evacuation centers")
+
+ggsave("assets/evac_centers.png", width=6, height=3, bg = "transparent")
+```
 
 

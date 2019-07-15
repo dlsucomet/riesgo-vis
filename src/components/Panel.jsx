@@ -106,7 +106,7 @@ export default class Panel extends React.Component {
             First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/evac_centers.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
             While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
