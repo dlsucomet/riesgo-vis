@@ -78,7 +78,7 @@ export default class Panel extends React.Component {
             Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. With continuous developments around it coupled with the constant threat of flooding, Marikina remains a focus of the national government’s efforts for flood control and disaster management (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/buildings.png" alt="Distribution of buildings in Marikina"></img>
         </section>
         <section id="typhoon">
           <Typography variant="h3">T.S. Ondoy</Typography>

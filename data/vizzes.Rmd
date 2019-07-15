@@ -61,7 +61,40 @@ ggsave("assets/elevation.png", width=6, height=2, bg = "transparent")
 ## Buildings
 
 ```{r}
+path <- file.path("marikina_structures.csv")
+buildings <- read.csv(path, stringsAsFactors = FALSE)
 
+unique(buildings$building)
+
+buildings %>% 
+  select(-amenity, -name, -way_area, -geometry, -icon, -area, -shop) %>% 
+  mutate(building = case_when(building == "house" ~ "Residential",
+                              building == "residential" ~ "Residential",
+                              building == "retail" ~ "Private",
+                              building == "mall" ~ "Private",
+                              building == "commercial" ~ "Private",
+                              building == "school" ~ "Education",
+                              building == "college" ~ "Education",
+                              building == "hospital" ~ "Health",
+                              building == "terrace" ~ "Private")) %>% 
+  mutate(building = as.character(building)) %>% 
+  mutate(building = factor(building,
+                           levels = c("Residential", "Private", "Education", "Health"))) %>% 
+  group_by(building) %>% 
+  count() %>% 
+  ggplot(aes(x = building, y = n, fill = building)) +
+  geom_col() +
+  coord_flip() +
+  scale_y_log10() +
+  scale_fill_brewer(palette = "Set2", direction = 1, guide = FALSE) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black")) +
+  labs(x = "",
+       y = "Number of structures (log 10)")
+
+ggsave("assets/buildings.png", width=6, height=3, bg = "transparent")
 ```
 
 
