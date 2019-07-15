@@ -42,11 +42,23 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
         visibility: 'visible',
+      },
+      {
+        id: 'aoe_labels',
+        visibility: 'none',
       },
       {
         id: 'evacuation',
@@ -99,10 +111,22 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -156,10 +180,22 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -215,10 +251,18 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -272,10 +316,22 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -329,10 +385,22 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -386,10 +454,22 @@ const chapters = {
         id: 'walking',
         opacity: 0,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
         id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
         visibility: 'none',
       },
       {
@@ -439,6 +519,14 @@ const chapters = {
         id: 'walking',
         opacity: 0.3,
       },
+      {
+        id: 'suitability',
+        opacity: 0,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
     ],
     layout: [
       {
@@ -446,8 +534,207 @@ const chapters = {
         visibility: 'none',
       },
       {
+        id: 'aoe_labels',
+        visibility: 'none',
+      },
+      {
         id: 'evacuation',
         visibility: 'visible',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  suitability: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+      {
+        id: 'suitability',
+        opacity: 0.7,
+      },
+      {
+        id: 'aoe',
+        opacity: 0,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
+        visibility: 'none',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  'good-place': {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+      {
+        id: 'suitability',
+        opacity: 0.7,
+      },
+      {
+        id: 'aoe',
+        opacity: 1,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
+        visibility: 'visible',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
+      },
+    ],
+    position: {
+      pitch: 0,
+      bearing: 0,
+      zoom,
+      center,
+      duration: 800,
+    },
+  },
+  conclusion: {
+    paint: [
+      {
+        id: 'boundary',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation3d',
+        opacity: 0,
+      },
+      {
+        id: 'buildings',
+        opacity: 0,
+      },
+      {
+        id: 'flood',
+        opacity: 0,
+      },
+      {
+        id: 'population',
+        opacity: 0,
+      },
+      {
+        id: 'landelevation',
+        opacity: 0,
+      },
+      {
+        id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'walking',
+        opacity: 0,
+      },
+      {
+        id: 'suitability',
+        opacity: 0.7,
+      },
+      {
+        id: 'aoe',
+        opacity: 1,
+      },
+    ],
+    layout: [
+      {
+        id: 'labels',
+        visibility: 'none',
+      },
+      {
+        id: 'aoe_labels',
+        visibility: 'visible',
+      },
+      {
+        id: 'evacuation',
+        visibility: 'none',
       },
     ],
     position: {
@@ -602,6 +889,28 @@ const filters = {
       ],
     },
   ],
+  suitability: [
+    {
+      hasAll: false,
+      value: 'suitabilityYear',
+      label: 'Suitability Return Period',
+      onChange: 'updateSuitabilityYear',
+      options: [
+        {
+          label: '5-year',
+          value: 'mcda005yrs',
+        },
+        {
+          label: '25-year',
+          value: 'mcda025yrs',
+        },
+        {
+          label: '100-year',
+          value: 'mcda100yrs',
+        },
+      ],
+    },
+  ],
 };
 
 const legendOptions = {
@@ -622,7 +931,7 @@ const legendOptions = {
   flood: {
     name: 'Flood Hazard',
     colors: ['#ffffb2', '#fecc5c', '#fd8d3c', '#e31a1c'],
-    min: 'Low',
+    min: 'Very Low',
     max: 'High',
     range: false,
   },
@@ -640,14 +949,23 @@ const legendOptions = {
     max: 13900,
     range: true,
   },
+  suitability: {
+    name: 'Suitability',
+    colors: ['#000000', '#b2182b', '#ef8a62', '#67a9cf', '#2166ac'],
+    min: 'Unsafe',
+    max: 'Very High',
+    range: false,
+  },
 };
 
 const chapterLayers = {
-  land: ['landelevation3d'],
+  marikina: ['landelevation3d'],
+  land: ['landelevation'],
   typhoon: ['flood'],
   evacuation: ['flood', 'landelevation'],
   population: ['population'],
   coverage: ['radius'],
+  suitability: ['suitability'],
 };
 
 const floodStops = [
@@ -657,6 +975,15 @@ const floodStops = [
   [4, '#ffffb2'],
 ];
 
+const suitabilityStops = [
+  [1, '#000000'],
+  [2, '#b2182b'],
+  [3, '#ef8a62'],
+  [4, '#67a9cf'],
+  [5, '#2166ac'],
+];
+
 export {
   chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
+  suitabilityStops,
 };

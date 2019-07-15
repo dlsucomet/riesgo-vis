@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
-import { chapters, floodStops } from '../config/options';
+import { chapters, floodStops, suitabilityStops } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
 
@@ -79,6 +79,11 @@ export default class Map extends React.Component {
       this.map.addSource('isochrones', {
         type: 'vector',
         url: 'mapbox://unissechua.a0wp66ok',
+      });
+
+      this.map.addSource('areas', {
+        type: 'geojson',
+        data: 'data/areas_of_interest.geojson',
       });
 
       this.map.addLayer({
@@ -188,6 +193,30 @@ export default class Map extends React.Component {
           },
         },
       });
+
+      this.map.addLayer({
+        id: 'suitability',
+        type: 'fill',
+        source: 'riesgo',
+        'source-layer': 'riesgo',
+        paint: {
+          'fill-color': {
+            property: 'mcda005yrs',
+            stops: [
+              [1, '#000000'],
+              [2, '#b2182b'],
+              [3, '#ef8a62'],
+              [4, '#67a9cf'],
+              [5, '#2166ac'],
+            ],
+          },
+          'fill-opacity': 0,
+          'fill-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
+        },
+      }, 'waterway');
 
       this.map.addLayer({
         id: 'evacuation',
@@ -337,6 +366,37 @@ export default class Map extends React.Component {
           'text-halo-width': 2,
         },
       });
+
+      this.map.addLayer({
+        id: 'aoe',
+        type: 'line',
+        source: 'areas',
+        paint: {
+          'line-color': '#303',
+          'line-width': 3,
+          'line-opacity': 0,
+        },
+      });
+
+      this.map.addLayer({
+        id: 'aoe_labels',
+        type: 'symbol',
+        source: 'areas',
+        layout: {
+          'text-field': '{name}',
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-size': 10,
+          'text-transform': 'uppercase',
+          'text-letter-spacing': 0.05,
+          'text-offset': [0, 1.5],
+          visibility: 'none',
+        },
+        paint: {
+          'text-color': '#303',
+          'text-halo-color': '#f9f6e7',
+          'text-halo-width': 2,
+        },
+      });
     });
 
 
@@ -381,11 +441,20 @@ export default class Map extends React.Component {
       tooltip.setLngLat(e.lngLat);
       this.setTooltip(features, chapterName);
     });
+
+    this.map.on('draw.create', (e) => {
+
+      const userPolygon = e.features[0];
+      // generate bounding box from polygon the user drew
+      const polygonBoundingBox = bbox(userPolygon);
+      console.log(polygonBoundingBox);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
     const {
-      chapterName, amenity, buildingType, layer, floodYear, minutes,
+      chapterName, amenity, buildingType, layer,
+      floodYear, minutes, suitabilityYear,
     } = this.props;
 
     if (this.map.isStyleLoaded()) {
@@ -464,6 +533,15 @@ export default class Map extends React.Component {
       if (nextProps.minutes) {
         if (nextProps.minutes !== minutes) {
           this.map.setFilter('walking', ['==', 'AA_MINS', nextProps.minutes]);
+        }
+      }
+
+      if (nextProps.suitabilityYear) {
+        if (nextProps.suitabilityYear !== suitabilityYear) {
+          this.map.setPaintProperty('suitability', 'fill-color', {
+            property: nextProps.suitabilityYear,
+            stops: suitabilityStops,
+          });
         }
       }
     }
