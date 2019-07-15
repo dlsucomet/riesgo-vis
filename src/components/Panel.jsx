@@ -121,7 +121,11 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/pop_hazard.png" alt="Distribution of exposed population per return period"></img>
           <br></br>
           <Typography>
-            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively.
+            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively. 
+          </Typography>
+          <br></br>
+          <Typography>
+            <span class="highlight">Can these people easily to a nearby evacuation center?</span> And if they can, <span class="highlight">will there be enough space and other provisions?</span>
           </Typography>
         </section>
         <section id="coverage">
@@ -133,7 +137,7 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/ideal_coverage.png" alt="Population covered within 400 meters"></img>
           <br></br>
           <Typography>
-            There are also many evacuation centers that <span class="highlight">overlap ideal coverage</span>, which can be a good thing for citizens. There are around <span class="highlight">35%</span> of the population with at least two evacuation centers nearby, and <span class="highlight">3% of them are near to four shelters</span>. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas.
+            There are also many evacuation centers that <span class="highlight">overlap ideal coverage</span>, which can be a good thing for citizens. There are around <span class="highlight">35%</span> of the population with at least two evacuation centers nearby, and <span class="highlight">3% of them are near to four shelters</span>. And if we look at the map, these clusters of evacuation centers are nicely located in relatively population dense areas, suggesting good coverage and availability of options.
           </Typography>
         </section>
         <section id="capacity">
@@ -151,8 +155,12 @@ export default class Panel extends React.Component {
         <section id="accessibility">
           <Typography variant="h3">Accessibility</Typography>
           <Typography>
-            Now that we know the ideal number of people that each evacuation should serve, how many can they actually fit? We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (5 sqm of space per person). All locations had an estimated capacity way below their ideal coverage, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of 10,416 people that will underserved per evacuation center.
+            We also looked into the accessibility of the evacuation centers by generating isochrones that represent <span class="highlight">areas that can be reached from 5 to 30 minutes</span>. It can be seen from the map that all evacuation centers can already be reached by the majority of the population in <span class="highlight">15 minutes</span>, which is beneficial for urgent evacuations at the onset of a heavy downpour. However, these isochrones cannot account for the effects of flooding on one’s walking speed if evacuations will happen during a deluge.
           </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/accessibility.jpg" alt="People walking on flooded roads"></img>
+          <br></br>
+          <i>(Photo credit: <a href="http://archive.boston.com/bigpicture/2009/09/typhoon_ketsana_ondoy.html" target="_blank">boston.com</a>)</i>
         </section>
         <section id="suitability">
           <Typography variant="h3">Suitability</Typography>
