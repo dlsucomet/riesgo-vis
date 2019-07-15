@@ -85,7 +85,7 @@ const chapters = {
       },
       {
         id: 'buildings',
-        opacity: 0.5,
+        opacity: 1,
       },
       {
         id: 'flood',
@@ -154,11 +154,11 @@ const chapters = {
       },
       {
         id: 'buildings',
-        opacity: 0.5,
+        opacity: 1,
       },
       {
         id: 'flood',
-        opacity: 0.7,
+        opacity: 0.6,
       },
       {
         id: 'landelevation',
@@ -229,7 +229,7 @@ const chapters = {
       },
       {
         id: 'flood',
-        opacity: 0.7,
+        opacity: 0.6,
       },
       {
         id: 'landelevation',
@@ -351,7 +351,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 0,
+        opacity: 1,
       },
       {
         id: 'landelevation3d',
@@ -375,7 +375,7 @@ const chapters = {
       },
       {
         id: 'radius',
-        opacity: 0.8,
+        opacity: 0.7,
       },
       {
         id: 'capacity',
@@ -420,7 +420,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 0,
+        opacity: 1,
       },
       {
         id: 'landelevation3d',
@@ -948,15 +948,16 @@ const tooltipConfig = {
       {
         label: 'meters above sea level',
         value: 'value',
+        type: 'inline',
       },
     ],
   },
   land: {
-    layer: 'landelevation',
+    layer: 'buildings',
     features: [
       {
-        label: 'meters above sea level',
-        value: 'value',
+        label: 'Building Type',
+        value: 'category',
       },
     ],
   },
@@ -975,6 +976,7 @@ const tooltipConfig = {
       {
         label: 'Name',
         value: 'name',
+        type: 'title',
       },
       {
         label: 'Capacity',
@@ -988,10 +990,11 @@ const tooltipConfig = {
       {
         label: 'Name',
         value: 'name',
+        type: 'title',
       },
       {
-        label: 'Capacity',
-        value: 'capacity',
+        label: 'Population Coverage (400-m)',
+        value: 'pop_coverage',
       },
     ],
   },
@@ -1001,6 +1004,11 @@ const tooltipConfig = {
       {
         label: 'Name',
         value: 'name',
+        type: 'title',
+      },
+      {
+        label: 'Population Coverage (400-m)',
+        value: 'pop_coverage',
       },
       {
         label: 'Capacity',

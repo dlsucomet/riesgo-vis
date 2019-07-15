@@ -8,6 +8,7 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
     paddingTop: theme.spacing.unit,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   caption: {
     fontFamily: ['Open Sans Condensed', 'sans-serif'].join(','),
@@ -15,7 +16,6 @@ const styles = theme => ({
     fontSize: 12,
     textTransform: 'uppercase',
     color: '#666',
-    textAlign: 'center',
   },
   subtitle: {
     fontFamily: ['Rubik', 'Arial', 'sans-serif'].join(','),
@@ -25,6 +25,12 @@ const styles = theme => ({
   item: {
     paddingBottom: theme.spacing.unit,
   },
+  title: {
+    fontFamily: ['Open Sans Condensed', 'sans-serif'].join(','),
+    fontSize: 16,
+    fontWeight: 700,
+    color: '#333',
+  },
 });
 
 const MapTooltip = (props) => {
@@ -33,16 +39,33 @@ const MapTooltip = (props) => {
 
   return (
     <Paper className={classes.tooltip}>
-      {tooltipOptions.features.map(data => (
-        <div className={classes.item}>
-          <span className={classes.caption}>
-            {data.label}
-            {': '}
-          </span>
-          <span className={classes.subtitle}>{feature[data.value]}</span>
-        </div>
-      ))}
-
+      {tooltipOptions.features.map((data) => {
+        switch (data.type) {
+          case 'title':
+            return (
+              <div className={classes.item}>
+                <span className={classes.title}>{feature[data.value]}</span>
+              </div>
+            );
+          case 'inline':
+            return (
+              <div className={classes.item}>
+                <span className={classes.subtitle}>
+                  {feature[data.value]}
+                  {' '}
+                  {data.label}
+                </span>
+              </div>
+            );
+          default:
+            return (
+              <div className={classes.item}>
+                <div className={classes.caption}>{data.label}</div>
+                <div className={classes.subtitle}>{feature[data.value]}</div>
+              </div>
+            );
+        }
+      })}
     </Paper>
   );
 };

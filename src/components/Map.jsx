@@ -50,7 +50,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('evacuation', {
         type: 'vector',
-        url: 'mapbox://unissechua.58fifmkf',
+        url: 'mapbox://unissechua.4r8fc81u',
       });
 
       this.map.addSource('landelevation', {
@@ -405,7 +405,7 @@ export default class Map extends React.Component {
     this.tooltipContainer = document.createElement('div');
 
     const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
-      offset: [0, -50],
+      offset: [-110, 0],
     }).setLngLat([0, 0]).addTo(this.map);
 
     this.map.on('click', (e) => {
