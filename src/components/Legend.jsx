@@ -160,7 +160,7 @@ const Legend = (props) => {
           ))}
         </ul>
       </Paper>
-    )
+    );
   }
 };
 

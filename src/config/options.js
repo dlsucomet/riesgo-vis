@@ -612,7 +612,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'none',
+        visibility: 'visible',
       },
     ],
     position: {
@@ -954,6 +954,26 @@ const filters = {
     },
   ],
   suitability: [
+    {
+      hasAll: true,
+      value: 'amenity',
+      label: 'Evacuation Centers',
+      onChange: 'updateAmenity',
+      options: [
+        {
+          label: 'Community Centre',
+          value: 'community_centre',
+        },
+        {
+          label: 'Basketball Court',
+          value: 'basketball_court',
+        },
+        {
+          label: 'School',
+          value: 'school',
+        },
+      ],
+    },
     {
       hasAll: false,
       value: 'suitabilityYear',

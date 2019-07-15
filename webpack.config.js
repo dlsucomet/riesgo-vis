@@ -2,6 +2,7 @@ const path = require('path');
 const resolve = require('path').resolve;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,8 +22,8 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve('dist'),
-    filename: 'main.js',
-    chunkFilename: '[name].js',
+    filename: 'main-[hash].js',
+    chunkFilename: '[name]-[hash].js',
   },
   optimization: {
     minimizer: [
@@ -117,6 +118,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     htmlPlugin,
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
