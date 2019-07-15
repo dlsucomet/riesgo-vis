@@ -61,8 +61,139 @@ ggsave("assets/elevation.png", width=6, height=2, bg = "transparent")
 ## Buildings
 
 ```{r}
+path <- file.path("marikina_structures.csv")
+buildings <- read.csv(path, stringsAsFactors = FALSE)
 
+unique(buildings$building)
+
+buildings %>% 
+  select(-amenity, -name, -way_area, -geometry, -icon, -area, -shop) %>% 
+  mutate(building = case_when(building == "house" ~ "Residential",
+                              building == "residential" ~ "Residential",
+                              building == "retail" ~ "Private",
+                              building == "mall" ~ "Private",
+                              building == "commercial" ~ "Private",
+                              building == "school" ~ "Education",
+                              building == "college" ~ "Education",
+                              building == "hospital" ~ "Health",
+                              building == "terrace" ~ "Private")) %>% 
+  mutate(building = as.character(building)) %>% 
+  mutate(building = factor(building,
+                           levels = c("Residential", "Private", "Education", "Health"))) %>% 
+  group_by(building) %>% 
+  count() %>% 
+  ggplot(aes(x = building, y = n, fill = building)) +
+  geom_col() +
+  coord_flip() +
+  scale_y_log10() +
+  scale_fill_brewer(palette = "Paired", direction = 1, guide = FALSE) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black")) +
+  labs(x = "",
+       y = "Number of structures (log 10)")
+
+ggsave("assets/buildings.png", width=6, height=3, bg = "transparent")
 ```
 
+
+## Evac Centers
+
+```{r}
+path <- file.path("marikina_evac_centers.csv")
+evac <- read.csv(path, stringsAsFactors = FALSE)
+
+evac %>% 
+  select(osm_id, amenity) %>% 
+  mutate(amenity = case_when(amenity == "school" ~ "School",
+                              amenity == "community_centre" ~ "Community Center",
+                              amenity == "basketball_court" ~ "Covered Court")) %>% 
+  mutate(amenity = as.character(amenity)) %>% 
+  mutate(amenity = factor(amenity,
+                           levels = c("School", "Community Center", "Covered Court"))) %>% 
+  group_by(amenity) %>% 
+  count() %>% 
+  ggplot(aes(x = amenity, y = n, fill = amenity)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_brewer(palette = "Paired", direction = 1, guide = FALSE) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
+  labs(x = "",
+       y = "Number of evacuation centers")
+
+ggsave("assets/evac_centers.png", width=6, height=2, bg = "transparent")
+```
+
+## Population Exposed
+
+```{r}
+path <- file.path("population_hazard.csv")
+pop_hazard <- read.csv(path, stringsAsFactors = FALSE)
+
+pop_hazard %>% 
+  select(-flood_hazard_level) %>% 
+  mutate(label = as.character(label)) %>% 
+  mutate(label = factor(label,
+                           levels = c("High", "Medium", "Low", "Marginal"))) %>% 
+  melt(id.vars = "label", measure.vars = c("fhm005yrs", "fhm025yrs", "fhm100yrs")) %>% 
+  mutate(variable = case_when(variable == "fhm005yrs" ~ "5-year",
+                              variable == "fhm025yrs" ~ "25-year",
+                              variable == "fhm100yrs" ~ "100-year")) %>% 
+  mutate(variable = as.character(variable)) %>% 
+  mutate(variable = factor(variable,
+                           levels = c("5-year", "25-year", "100-year"))) %>% 
+  ggplot(aes(x = label, y = value, fill = variable)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  coord_flip() +
+  scale_fill_brewer(palette = "Paired", direction = 1) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black"),
+        legend.position = "top",
+        legend.title = element_blank(),
+        legend.text = element_text(margin = margin(l = 2, r = 5), hjust = 0),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
+  labs(x = "",
+       y = "Population exposed to hazard")
+
+ggsave("assets/pop_hazard.png", width=6, height=5, bg = "transparent")
+```
+
+
+## Average ideal coverage per evac center
+
+```{r}
+evac %>% 
+  select(osm_id, amenity, pop_coverage) %>% 
+  mutate(amenity = case_when(amenity == "school" ~ "School",
+                              amenity == "community_centre" ~ "Community Center",
+                              amenity == "basketball_court" ~ "Covered Court")) %>% 
+  mutate(amenity = as.character(amenity)) %>% 
+  mutate(amenity = factor(amenity,
+                           levels = c("School", "Community Center", "Covered Court"))) %>% 
+  group_by(amenity) %>% 
+  ggplot(aes(x = amenity, y = pop_coverage)) +
+  geom_jitter(aes(fill = amenity), 
+              alpha = 1, width = 0.2, shape = 21) +
+  geom_boxplot(aes(fill = amenity, alpha = 0.2), colour = "grey50", show.legend = FALSE, 
+               outlier.shape = NA, alpha = 0.2) +
+  coord_flip() +
+  scale_fill_brewer(palette = "Paired", direction = 1, guide = FALSE) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
+  labs(x = "",
+       y = "Population covered within 400 meters")
+
+ggsave("assets/ideal_coverage.png", width=6, height=3, bg = "transparent")
+```
 
 
