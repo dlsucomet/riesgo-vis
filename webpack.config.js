@@ -1,7 +1,7 @@
 const path = require('path');
 const resolve = require('path').resolve;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -12,6 +12,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
   inject: 'body',
+  favicon: './src/favicon.png',
 });
 
 // const siteStyles = new ExtractTextPlugin('main.css');
@@ -25,9 +26,9 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
+      new TerserPlugin({
         sourceMap: true,
-        uglifyOptions: {
+        terserOptions: {
           compress: {
             inline: false,
           },
@@ -101,6 +102,17 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
