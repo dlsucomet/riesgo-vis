@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
 import {
-  chapters, floodStops, suitabilityStops, tooltipConfig,
+  chapters, floodStops, suitabilityStops, isoStops, tooltipConfig,
 } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
@@ -80,7 +80,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('isochrones', {
         type: 'vector',
-        url: 'mapbox://unissechua.a0wp66ok',
+        url: 'mapbox://unissechua.166d592u',
       });
 
       this.map.addSource('areas', {
@@ -526,8 +526,14 @@ export default class Map extends React.Component {
         if (nextProps.amenity !== amenity) {
           if (nextProps.amenity !== 'all') {
             this.map.setFilter('evacuation', ['==', 'amenity', nextProps.amenity]);
+            this.map.setFilter('capacity', ['==', 'amenity', nextProps.amenity]);
+            this.map.setFilter('radius', ['==', 'amenity', nextProps.amenity]);
+            this.map.setFilter('walking', ['all', ['==', 'amenity', nextProps.amenity], ['==', 'AA_MINS', minutes]]);
           } else {
             this.map.setFilter('evacuation', undefined);
+            this.map.setFilter('capacity', undefined);
+            this.map.setFilter('radius', undefined);
+            this.map.setFilter('walking', ['==', 'AA_MINS', minutes]);
           }
         }
       }
@@ -570,7 +576,11 @@ export default class Map extends React.Component {
 
       if (nextProps.minutes) {
         if (nextProps.minutes !== minutes) {
-          this.map.setFilter('walking', ['==', 'AA_MINS', nextProps.minutes]);
+          if (amenity !== 'all') {
+            this.map.setFilter('walking', ['all', ['==', 'AA_MINS', nextProps.minutes], ['==', 'amenity', amenity]]);
+          } else {
+            this.map.setFilter('walking', ['==', 'AA_MINS', nextProps.minutes]);
+          }
         }
       }
 

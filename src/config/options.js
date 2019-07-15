@@ -489,7 +489,7 @@ const chapters = {
     paint: [
       {
         id: 'boundary',
-        opacity: 1,
+        opacity: 0,
       },
       {
         id: 'landelevation3d',
@@ -505,7 +505,7 @@ const chapters = {
       },
       {
         id: 'population',
-        opacity: 0,
+        opacity: 0.1,
       },
       {
         id: 'landelevation',
@@ -521,7 +521,7 @@ const chapters = {
       },
       {
         id: 'walking',
-        opacity: 0.3,
+        opacity: 0.7,
       },
       {
         id: 'suitability',
@@ -855,7 +855,71 @@ const filters = {
       ],
     },
   ],
+  coverage: [
+    {
+      hasAll: true,
+      value: 'amenity',
+      label: 'Evacuation Centers',
+      onChange: 'updateAmenity',
+      options: [
+        {
+          label: 'Community Centre',
+          value: 'community_centre',
+        },
+        {
+          label: 'Basketball Court',
+          value: 'basketball_court',
+        },
+        {
+          label: 'School',
+          value: 'school',
+        },
+      ],
+    },
+  ],
+  capacity: [
+    {
+      hasAll: true,
+      value: 'amenity',
+      label: 'Evacuation Centers',
+      onChange: 'updateAmenity',
+      options: [
+        {
+          label: 'Community Centre',
+          value: 'community_centre',
+        },
+        {
+          label: 'Basketball Court',
+          value: 'basketball_court',
+        },
+        {
+          label: 'School',
+          value: 'school',
+        },
+      ],
+    },
+  ],
   accessibility: [
+    {
+      hasAll: true,
+      value: 'amenity',
+      label: 'Evacuation Centers',
+      onChange: 'updateAmenity',
+      options: [
+        {
+          label: 'Community Centre',
+          value: 'community_centre',
+        },
+        {
+          label: 'Basketball Court',
+          value: 'basketball_court',
+        },
+        {
+          label: 'School',
+          value: 'school',
+        },
+      ],
+    },
     {
       hasAll: false,
       value: 'minutes',
@@ -1161,7 +1225,16 @@ const suitabilityStops = [
   [5, '#2166ac'],
 ];
 
+const isoStops = [
+  [30, '#bd0026'],
+  [25, '#f03b20'],
+  [20, '#fd8d3c'],
+  [15, '#feb24c'],
+  [10, '#feb24c'],
+  [5, '#feb24c'],
+];
+
 export {
   chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
-  suitabilityStops, tooltipConfig,
+  suitabilityStops, tooltipConfig, isoStops,
 };

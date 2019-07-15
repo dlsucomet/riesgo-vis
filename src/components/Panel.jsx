@@ -161,7 +161,11 @@ export default class Panel extends React.Component {
           </Typography>
           <br></br>
           <Typography>
-          The basis of the suitability score varied depending on the flood hazard level to be able to factor in cases of high-rising flood and low-rising flood. If we look at the suitability map for a 5-year return period, <span class="highlight">over 52% of the city has low to very low suitability</span>. The percentage increases to approximately <span class="highlight">64%</span> and <span class="highlight">69%</span> for the 25- and 100-year return periods respectively.
+            The basis of the suitability score varied depending on the flood hazard level to be able to factor in cases of high-rising flood and low-rising flood. If we look at the suitability map for a 5-year return period, <span class="highlight">over 52% of the city has low to very low suitability</span>. The percentage increases to approximately <span class="highlight">64%</span> and <span class="highlight">69%</span> for the 25- and 100-year return periods respectively.
+          </Typography>
+          <br></br>
+          <Typography>
+            Out of the 28 evacuation centers, <span class="highlight">only 3 evacuation centers</span> will be in very high suitability areas up until the 100-year return period. There are 13 which would stay in high suitability areas, but the remaining 12 will be in low suitability areas by the 100-year return period.
           </Typography>
         </section>
         <section id="good-place">
