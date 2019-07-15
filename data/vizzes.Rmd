@@ -1,0 +1,68 @@
+---
+title: "Riesgo-Vis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Precipitation
+
+```{r}
+precip <- tibble(mos = as.factor(c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")),
+                 rain = c(1.0, 1.0, 1.5, 1.0, 1.5, 5.0, 10.0, 17.0, 16.0, 14.0, 8.0, 6.0))
+precip %>% 
+  mutate(mos = as.character(mos)) %>%
+  mutate(mos = factor(mos, levels = unique(mos))) %>% 
+  ggplot(aes(mos, rain)) +
+  geom_col(aes(fill = rain)) +
+  scale_fill_distiller(palette = "Blues", direction = 1, guide = FALSE) +
+  scale_y_continuous(breaks = c(1, 6, 12, 17), 
+                     labels = c("1 in", "6 in", "12 in", "17 in")) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black")) +
+  labs(x = "",
+       y = "",
+       caption = "Source: PAGASA DOST")
+
+ggsave("assets/precip.png", width=6, height=2, bg = "transparent")
+```
+
+## Elevation
+
+```{r}
+path <- file.path("landelevation.csv")
+elev <- read.csv(path, stringsAsFactors = FALSE)
+
+elev %>% 
+  select(-geometry) %>% 
+  group_by(value) %>% 
+  count() %>% 
+  ggplot(aes(x = value, y = n, fill = value)) +
+  geom_col() +
+  scale_fill_distiller(palette = "YlGnBu", direction = 1, guide = FALSE) +
+  scale_x_continuous(breaks = c(2, 15, 69), 
+                     labels = c("2 m", "15 m", "69 m")) +
+  theme_tufte(base_family = "Avenir", ticks = FALSE) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.text.y = element_blank()) +
+  labs(x = "",
+       y = "")
+
+ggsave("assets/elevation.png", width=6, height=2, bg = "transparent")
+```
+
+
+## Buildings
+
+```{r}
+
+```
+
+
+

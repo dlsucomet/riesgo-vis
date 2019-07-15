@@ -1,0 +1,16 @@
+year,suitability,percent_area
+5,Very High,9.23
+5,High,32.72
+5,Low,49.57
+5,Very Low,3.19
+5,Unsafe,0.29
+25,Very High,7.11
+25,High,28.27
+25,Low,58.38
+25,Very Low,4.28
+25,Unsafe,0.97
+100,Very High,9.23
+100,High,24.00
+100,Low,63.15
+100,Very Low,5.23
+100,Unsafe,0.99
