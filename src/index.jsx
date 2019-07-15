@@ -37,7 +37,7 @@ const theme = createMuiTheme({
       fontSize: 14,
       fontWeight: "fontWeightMedium",
       letterSpacing: 2,
-      marginTop: 15,
+      marginTop: 5,
       marginBottom: 5,
     },
     caption: {
