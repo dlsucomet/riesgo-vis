@@ -752,13 +752,6 @@ const legendLabels = {
   landelevation3d: 'Land Elevation',
 };
 
-const buildingMap = {
-  residential: ['house', 'residential'],
-  private: ['commercial', 'retail', 'mall'],
-  health: ['hospital'],
-  education: ['school', 'college'],
-};
-
 const filters = {
   land: [
     {
@@ -948,6 +941,88 @@ const filters = {
   ],
 };
 
+const tooltipConfig = {
+  marikina: {
+    layer: 'landelevation3d',
+    features: [
+      {
+        label: 'meters above sea level',
+        value: 'value',
+      },
+    ],
+  },
+  land: {
+    layer: 'landelevation',
+    features: [
+      {
+        label: 'meters above sea level',
+        value: 'value',
+      },
+    ],
+  },
+  typhoon: {
+    layer: 'buildings',
+    features: [
+      {
+        label: 'Building Type',
+        value: 'category',
+      },
+    ],
+  },
+  evacuation: {
+    layer: 'evacuation',
+    features: [
+      {
+        label: 'Name',
+        value: 'name',
+      },
+      {
+        label: 'Capacity',
+        value: 'capacity',
+      },
+    ],
+  },
+  coverage: {
+    layer: 'evacuation',
+    features: [
+      {
+        label: 'Name',
+        value: 'name',
+      },
+      {
+        label: 'Capacity',
+        value: 'capacity',
+      },
+    ],
+  },
+  capacity: {
+    layer: 'evacuation',
+    features: [
+      {
+        label: 'Name',
+        value: 'name',
+      },
+      {
+        label: 'Capacity',
+        value: 'capacity',
+      },
+    ],
+  },
+  accessibility: {
+    layer: 'evacuation',
+    features: [
+      {
+        label: 'Name',
+        value: 'name',
+      },
+      {
+        label: 'Capacity',
+        value: 'capacity',
+      },
+    ],
+  },
+};
+
 const legendOptions = {
   landelevation3d: {
     name: 'Land Elevation (m)',
@@ -1022,5 +1097,5 @@ const suitabilityStops = [
 
 export {
   chapters, legendLabels, filters, legendOptions, chapterLayers, floodStops,
-  suitabilityStops, buildingMap,
+  suitabilityStops, tooltipConfig,
 };

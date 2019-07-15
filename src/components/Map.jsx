@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import Legend from './Legend';
 import MapTooltip from './MapTooltip';
 import {
-  chapters, floodStops, suitabilityStops, buildingMap,
+  chapters, floodStops, suitabilityStops, tooltipConfig,
 } from '../config/options';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpYW5laGVueW8iLCJhIjoiY2pndWV6dThmMTJlYTJxcTl5aDBoNTg5aSJ9.4qHmp0Q31Yuntdp6Ee_x-A';
@@ -65,7 +65,7 @@ export default class Map extends React.Component {
 
       this.map.addSource('buildings', {
         type: 'vector',
-        url: 'mapbox://unissechua.bqwm77y2',
+        url: 'mapbox://unissechua.bnoseblw',
       });
 
       this.map.addSource('boundary', {
@@ -405,7 +405,7 @@ export default class Map extends React.Component {
     this.tooltipContainer = document.createElement('div');
 
     const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
-      offset: [0, -40],
+      offset: [0, -50],
     }).setLngLat([0, 0]).addTo(this.map);
 
     this.map.on('click', (e) => {
@@ -430,18 +430,22 @@ export default class Map extends React.Component {
 
     this.map.on('mousemove', (e) => {
       const { chapterName } = this.props;
-      const features = this.map.queryRenderedFeatures(e.point, { layers: ['buildings'] });
+      const tooltipOptions = tooltipConfig[chapterName];
 
-      if (features.length > 0) {
-        const selected = features[0].properties;
+      if (tooltipOptions !== undefined) {
+        const features = this.map.queryRenderedFeatures(e.point, { layers: [tooltipOptions.layer] });
 
-        if (selected.building !== undefined) {
-          this.map.getCanvas().style.cursor = features.length ? 'default' : '';
+        if (features.length > 0) {
+          const selected = features[0].properties;
+
+          if (selected !== undefined) {
+            this.map.getCanvas().style.cursor = features.length ? 'default' : '';
+          }
         }
-      }
 
-      tooltip.setLngLat(e.lngLat);
-      this.setTooltip(features, chapterName);
+        tooltip.setLngLat(e.lngLat);
+        this.setTooltip(features, tooltipOptions);
+      }
     });
   }
 
@@ -491,9 +495,7 @@ export default class Map extends React.Component {
       if (nextProps.buildingType) {
         if (nextProps.buildingType !== buildingType) {
           if (nextProps.buildingType !== 'all') {
-            const filter = ['in', 'building'];
-
-            this.map.setFilter('buildings', filter.concat(buildingMap[nextProps.buildingType]));
+            this.map.setFilter('buildings', ['==', 'category', nextProps.buildingType]);
           } else {
             this.map.setFilter('buildings', undefined);
           }
@@ -552,12 +554,12 @@ export default class Map extends React.Component {
    * @param {object} features - queried features from the map
    * @public
    */
-  setTooltip(features, chapterName) {
+  setTooltip(features, tooltipOptions) {
     if (features.length) {
       ReactDOM.render(
         React.createElement(
           MapTooltip, {
-            features, chapterName,
+            features, tooltipOptions,
           },
         ),
         this.tooltipContainer,
