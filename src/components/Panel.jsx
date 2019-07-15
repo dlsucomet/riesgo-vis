@@ -55,12 +55,14 @@ export default class Panel extends React.Component {
         <section id="marikina" className="active">
           <Typography variant="h3">Marikina City</Typography>
           <Typography>
-            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. It is near the center of the Pasig-Marikina river basin, with most of the city at an elevation of 15 meters above sea level.
+            A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. Situated near the center of the Pasig-Marikina river basin, most of the city sits at an elevation of 15 meters above sea level.
           </Typography>
           <br></br>
           <Typography>
-          Like the rest of the country, Marikina experiences a tropical monsoon climate with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>)
+            Like the rest of the country, Marikina experiences a <span class="highlight">tropical monsoon climate</span> with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. Overall in a year, Marikina experiences <span class="highlight">82 inches</span> of rain on average (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>).
           </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/precip.png" alt="Average precipitation per month in Marikina"></img>
         </section>
         <section id="land">
           <Typography variant="h3">A River Runs through It</Typography>
@@ -69,11 +71,11 @@ export default class Panel extends React.Component {
           </Typography>
           <br></br>
           <Typography>
-            Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. This coupled with the constant threat of flooding, Marikina has been the focus of the national government’s efforts for flood control and disaster management. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River">Wikipedia</a></i>)
+            Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. This, coupled with the constant threat of flooding, Marikina has been the focus of the national government’s efforts for flood control and disaster management. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River">Wikipedia</a></i>)
           </Typography>
         </section>
         <section id="typhoon">
-          <Typography variant="h3">New Normal</Typography>
+          <Typography variant="h3">Ondoy &mdash; the New Normal</Typography>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
           </Typography>

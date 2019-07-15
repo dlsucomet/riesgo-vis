@@ -5,6 +5,7 @@ import indigo from '@material-ui/core/colors/indigo';
 import App from './components/App';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './main.css';
+import { transformMat2 } from 'gl-matrix/src/gl-matrix/vec2';
 
 const theme = createMuiTheme({
   palette: {

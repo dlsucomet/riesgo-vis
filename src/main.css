@@ -11,7 +11,7 @@ body {
   background-color: #fafafa;
 }
 section {
-  padding:  25px 25px;
+  padding: 100px 25px;
   line-height: 25px;
   border-bottom: 1px solid #ddd;
   opacity: 0.5;
@@ -84,4 +84,14 @@ section:last-child {
 .mapLegend li.max {
   float: right;
   margin: 0 0 5px;
+}
+
+.figure {
+  object-fit: contain; 
+  margin: 0px;
+  width: 100%; 
+}
+
+.highlight {
+  color: tomato;
 }
