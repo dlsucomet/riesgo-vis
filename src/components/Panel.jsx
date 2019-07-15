@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { chapters } from '../config/options';
+import accessibility from '../../data/assets/accessibility.jpg';
+import buildings from '../../data/assets/buildings.png';
+import elevation from '../../data/assets/elevation.png';
+import precip from '../../data/assets/precip.png';
+import evacCenters from '../../data/assets/evac_centers.png';
+import popHazard from '../../data/assets/pop_hazard.png';
+import idealCoverage from '../../data/assets/ideal_coverage.png';
+import sampaguita from '../../data/assets/sampaguita_gym.png';
 
 export default class Panel extends React.Component {
   constructor(props) {
@@ -58,14 +66,14 @@ export default class Panel extends React.Component {
             A highly urbanized city in the capital region of the Philippines, it lies in a valley surrounded by the mountains of Sierra Madre in the east and the hills of Quezon City in the west. Situated near the center of the Pasig-Marikina river basin, most of the city sits at an elevation of <span class="highlight">15 meters above sea level</span>.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/elevation.png" alt="Distribution of land elevations"></img>
+          <img class="figure" src={elevation} alt="Distribution of land elevations"></img>
           <br></br>
           <Typography variant="h6">CLIMATE &amp; ANNUAL PRECIPITATION</Typography>
           <Typography>
             Like the rest of the country, Marikina experiences a <span class="highlight">tropical monsoon climate</span> with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. Overall in a year, Marikina experiences <span class="highlight">82 inches</span> of rain on average (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Average precipitation per month in Marikina"></img>
+          <img class="figure" src={precip} alt="Average precipitation per month in Marikina"></img>
         </section>
         <section id="land">
           <Typography variant="h3">A River Runs through It</Typography>
@@ -78,7 +86,7 @@ export default class Panel extends React.Component {
             Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. With continuous developments around it coupled with the constant threat of flooding, Marikina remains a focus of the national government’s efforts for flood control and disaster management (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/buildings.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src={buildings} alt="Distribution of buildings in Marikina"></img>
         </section>
         <section id="typhoon">
           <Typography variant="h3">T.S. Ondoy</Typography>
@@ -106,7 +114,7 @@ export default class Panel extends React.Component {
             First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons. 
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/evac_centers.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src={evacCenters} alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
             While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
@@ -123,10 +131,10 @@ export default class Panel extends React.Component {
             Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span>
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/pop_hazard.png" alt="Distribution of exposed population per return period"></img>
+          <img class="figure" src={popHazard} alt="Distribution of exposed population per return period"></img>
           <br></br>
           <Typography>
-            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively. 
+            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively.
           </Typography>
           <br></br>
           <Typography>
@@ -139,7 +147,7 @@ export default class Panel extends React.Component {
             If we draw <span class="highlight">400 m</span> circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider these as the <span class="highlight">ideal number of people that each evacuation center should be able to shelter</span> in times of disaster. Currently, <span class="highlight">86%</span> of the population are in close proximity to at least one evacuation center.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/ideal_coverage.png" alt="Population covered within 400 meters"></img>
+          <img class="figure" src={idealCoverage} alt="Population covered within 400 meters"></img>
           <br></br>
           <Typography>
             There are also many evacuation centers that <span class="highlight">overlap ideal coverage</span>, which can be a good thing for citizens. There are around <span class="highlight">35%</span> of the population with at least two evacuation centers nearby, and <span class="highlight">3% of them are near to four shelters</span>. And if we look at the map, these clusters of evacuation centers are nicely located in relatively population dense areas, suggesting good coverage and availability of options.
@@ -151,7 +159,7 @@ export default class Panel extends React.Component {
             Now that we know the ideal number of people that each evacuation should serve, <span class="highlight">how many can they actually fit?</span> We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (<span class="highlight">5 sqm of space per person</span>). All locations had an estimated capacity <span class="highlight">way below their ideal coverage</span>, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of <span class="highlight">10,416 people</span> that will underserved per evacuation center.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/sampaguita_gym.png" alt="Sampaguita Gym in Marikina"></img>
+          <img class="figure" src={sampaguita} alt="Sampaguita Gym in Marikina"></img>
           <br></br>
           <Typography>
             To illustrate some of these differences, <span class="highlight">Sampaguita Gym</span> has an estimated capacity of only <span class="highlight">123 people</span> evacuating and staying comfortably in its vicinity. However, because of the dense population within close proximity, it needs to serve <span class="highlight">168 times more people</span>. While Malanday National HS, Malanday Elementary School and Filipinas Gym are other nearby options, they too are well below their capacities, with <span class="highlight">Filipinas Gym</span> expected to shelter <span class="highlight">127 times more</span>. <i>(Photo credit: Google Streetview)</i>
@@ -163,7 +171,7 @@ export default class Panel extends React.Component {
             We also looked into the accessibility of the evacuation centers by generating isochrones that represent <span class="highlight">areas that can be reached from 5 to 30 minutes</span>. It can be seen from the map that all evacuation centers can already be reached by the majority of the population in <span class="highlight">15 minutes</span>, which is beneficial for urgent evacuations at the onset of a heavy downpour. However, these isochrones cannot account for the effects of flooding on one’s walking speed if evacuations will happen during a deluge.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/accessibility.jpg" alt="People walking on flooded roads"></img>
+          <img class="figure" src={accessibility} alt="People walking on flooded roads"></img>
           <br></br>
           <i>(Photo credit: <a href="http://archive.boston.com/bigpicture/2009/09/typhoon_ketsana_ondoy.html" target="_blank">boston.com</a>)</i>
         </section>
@@ -174,7 +182,11 @@ export default class Panel extends React.Component {
           </Typography>
           <br></br>
           <Typography>
-          The basis of the suitability score varied depending on the flood hazard level to be able to factor in cases of high-rising flood and low-rising flood. If we look at the suitability map for a 5-year return period, <span class="highlight">over 52% of the city has low to very low suitability</span>. The percentage increases to approximately <span class="highlight">64%</span> and <span class="highlight">69%</span> for the 25- and 100-year return periods respectively.
+            The basis of the suitability score varied depending on the flood hazard level to be able to factor in cases of high-rising flood and low-rising flood. If we look at the suitability map for a 5-year return period, <span class="highlight">over 52% of the city has low to very low suitability</span>. The percentage increases to approximately <span class="highlight">64%</span> and <span class="highlight">69%</span> for the 25- and 100-year return periods respectively.
+          </Typography>
+          <br></br>
+          <Typography>
+            Out of the 28 evacuation centers, <span class="highlight">only 3 evacuation centers</span> will be in very high suitability areas up until the 100-year return period. There are 13 which would stay in high suitability areas, but the remaining 12 will be in low suitability areas by the 100-year return period.
           </Typography>
         </section>
         <section id="good-place">
