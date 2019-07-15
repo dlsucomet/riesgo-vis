@@ -151,13 +151,25 @@ export default class Panel extends React.Component {
         <section id="suitability">
           <Typography variant="h3">Suitability</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+            By considering the various factors such as <span class="highlight">flood hazard level, land elevation, land cover, accessibility to road networks and the maximum population coverage of an evacuation center</span>, we derived a suitability score for each area. The suitability score gives us an idea of how ideal a certain area is for an evacuation center to be built to be able to minimize the risks.
+          </Typography>
+          <br></br>
+          <Typography>
+          The basis of the suitability score varied depending on the flood hazard level to be able to factor in cases of high-rising flood and low-rising flood. If we look at the suitability map for a 5-year return period, <span class="highlight">over 52% of the city has low to very low suitability</span>. The percentage increases to approximately <span class="highlight">64%</span> and <span class="highlight">69%</span> for the 25- and 100-year return periods respectively.
           </Typography>
         </section>
         <section id="good-place">
           <Typography variant="h3">The Good Places</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+            Despite a large area of Marikina considered to have low suitability for flood evacuation centers, there are some large <span class="highlight">very high suitable areas</span> that we can notice. The largest area is found in the neighborhood of <span class="highlight">Marikina Heights</span> at the eastern side of the city. This area is composed of mountains and numerous narrow alleys which act as <span class="highlight">catch basins</span> during the floods. In the recent flooding due to Typhoon Karding, this area reported no flooding possibly due to its <span class="highlight">topographical characteristics</span> and <span class="highlight">developed facilities</span> like drainage and pumping stations to accommodate the <span class="highlight">high population</span>.
+          </Typography>
+          <br></br>
+          <Typography>
+            The second largest very high suitable area is found at the western side of the Marikina River with <span class="highlight">Ateneo De Manila University</span> as a neighbor on the west. The university area is <span class="highlight">almost entirely covered in grass with some scattered trees</span>. Compared to other areas <span class="highlight">right beside the river</span>, this area has a <span class="highlight">higher elevation</span> and experiences <span class="highlight">very little flooding</span>.
+          </Typography>
+          <br></br>
+          <Typography>
+            On the other side of the Marikina River, another very high suitable area can be observed and it is <span class="highlight">relatively closer to the river</span> compared to the previous area mentioned. Aside from its relatively <span class="highlight">large concentration of people</span>, the high suitability score could be attributed to <span class="highlight">numerous passable roads</span> and spots of <span class="highlight">greenery</span> contributed by golf lots, sports complexes and other leisure accommodations within the vicinity.
           </Typography>
         </section>
         <section id="conclusion">
