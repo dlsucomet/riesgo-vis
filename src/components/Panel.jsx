@@ -109,23 +109,19 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
-<<<<<<< HEAD
-            While these buildings might seem practical for a few days of stay, there are always concerns whether there is enough space and provisions for privacy, proper sanitation and healthcare. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
-=======
-            While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance. 
->>>>>>> ea17c584af0df76b4234b5c3ef83cdfe9ce1b026
+            While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
           </Typography>
         </section>
         <section id="population">
           <Typography variant="h3">Population</Typography>
           <Typography>
-            Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span> 
+            Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span>
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
-            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively. 
+            If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively.
           </Typography>
         </section>
         <section id="coverage">
@@ -137,7 +133,7 @@ export default class Panel extends React.Component {
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
-            There are also many evacuation centers that overlap ideal coverage, which can be a good thing for citizens. There are around 35% of the population with at least two evacuation centers nearby, and 3% of them are near to four shelters. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas. 
+            There are also many evacuation centers that overlap ideal coverage, which can be a good thing for citizens. There are around 35% of the population with at least two evacuation centers nearby, and 3% of them are near to four shelters. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas.
           </Typography>
         </section>
         <section id="capacity">
