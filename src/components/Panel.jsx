@@ -62,7 +62,7 @@ export default class Panel extends React.Component {
           <br></br>
           <Typography variant="h6">CLIMATE &amp; ANNUAL PRECIPITATION</Typography>
           <Typography>
-            Like the rest of the country, Marikina experiences a <span class="highlight">tropical monsoon climate</span> with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. Overall in a year, Marikina experiences <span class="highlight">82 inches</span> of rain on average (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina">Wikipedia</a></i>).
+            Like the rest of the country, Marikina experiences a <span class="highlight">tropical monsoon climate</span> with average temperatures from 20 &deg;C to 34 &deg;C. Although these can feel warmer because of high humidity. The dry season starts January through May, bringing around 1.5 inches of rain. For the rest of the year, Marikina experiences its wet season which pours around 5 to 17 inches of rain, with heavy downpours from August to October. Overall in a year, Marikina experiences <span class="highlight">82 inches</span> of rain on average (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/precip.png" alt="Average precipitation per month in Marikina"></img>
@@ -73,8 +73,9 @@ export default class Panel extends React.Component {
             The <span class="highlight">Marikina River</span> runs at the heart of the city, draining off rain water through its tributaries to Laguna de Bay. In its 38 kilometer stretch, its depth ranges from 3 to 21 meters, and its segments can span from 70 to 120 meters. Because it runs through to the lower stretch of the basin, the riverbanks only have elevations as high as 8 down to 2 meters above sea level.
           </Typography>
           <br></br>
+          <Typography variant="h6">CALL TO ACTION</Typography>
           <Typography>
-            Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. With continuous developments around it coupled with the constant threat of flooding, Marikina remains a focus of the national government’s efforts for flood control and disaster management. (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River">Wikipedia</a></i>)
+            Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. With continuous developments around it coupled with the constant threat of flooding, Marikina remains a focus of the national government’s efforts for flood control and disaster management (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
           <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
@@ -82,7 +83,17 @@ export default class Panel extends React.Component {
         <section id="typhoon">
           <Typography variant="h3">Ondoy, the New Normal</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tellus facilisis, cursus metus ut, porttitor ipsum. Nulla et nunc porta, viverra nunc eu, sodales dui. Donec ornare ipsum sed leo faucibus faucibus. Etiam posuere nec nulla sed auctor. Suspendisse consectetur efficitur magna sed tempor. Aliquam laoreet fringilla imperdiet. In tincidunt tortor nec nibh volutpat, ac tempor velit dapibus. Nunc eu nunc vel magna dictum tristique non eu quam. Aliquam viverra risus nisl, sed aliquet est consequat ac. Sed eget tortor sagittis arcu sodales lobortis vel non enim.
+            Like a shield to its southeast asian neighbors, the Philippines welcomes around twenty tropical cyclones in its area of responsibility. Around ten of them become actual typhoons and make landfall, with five of those potentially bringing destructive winds and heavy rains. This makes the Philippines the most exposed to tropical storms &mdash; an unfortunate record to bear (<i>Source: <a href="https://en.wikipedia.org/wiki/Typhoons_in_the_Philippines" target="_blank">Wikipedia</a>, <a href="http://world.time.com/2013/11/11/the-philippines-is-the-most-storm-exposed-country-on-earth/" target="_blank">Time</a></i>).
+          </Typography>
+          <br></br>
+          <Typography variant="h6">EXTENT &amp; IMPACT</Typography>
+          <Typography>
+            On September 26, 2009, tropical storm “Ondoy” (typhoon “Ketsana”) made landfall and for 12 hours, flooded Metro Manila and Central Luzon. Catching everyone by surprise, it continuously dumped around 341 mm (14 in) of rain in just 6 hours and within 24 hours, a record-high 455 mm (17.9 in) of rainfall was reported. Considered as the worst flooding with heights that reached around 20 feet, its extent reached 14/16 <i>barangays</i> (towns), drowned around 464 people, and caused around 11 billion pesos in damages (<i>Source: <a href="https://en.wikipedia.org/wiki/Typhoon_Ketsana" target="_blank">Wikipedia</a>, <a href="https://newsinfo.inquirer.net/818907/special-report-on-storm-ondoy-marikina-remembers-end-of-the-world" target="_blank">Inquirer</a></i>).
+          </Typography>
+          <br></br>
+          <Typography variant="h6">NEW NORMAL</Typography>
+          <Typography>
+            While Ondoy was not the wettest nor deadliest in recorded history, the large amount of rain it brought over the national capital region in a short span of time was a definite cause of concern. So much so that the Philippines instituted a more comprehensive working group, the National Disaster Risk Reduction and Management Council, and ramped up the production of flood hazard maps based on the Ondoy aftermath. Since then, people now anticipate and prepare for Ondoy-like flooding whenever new typhoons make landfall. At the same time, disaster preparedness and management for the capital region uses Ondoy as an effective baseline.
           </Typography>
         </section>
         <section id="evacuation">
