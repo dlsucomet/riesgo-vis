@@ -336,7 +336,7 @@ const chapters = {
       },
       {
         id: 'evacuation',
-        visibility: 'visible',
+        visibility: 'none',
       },
     ],
     position: {

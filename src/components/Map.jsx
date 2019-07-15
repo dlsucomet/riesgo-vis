@@ -268,6 +268,45 @@ export default class Map extends React.Component {
       }, 'waterway');
 
       this.map.addLayer({
+        id: 'capacity',
+        type: 'circle',
+        source: 'evacuation',
+        'source-layer': 'marikina_evac_centers',
+        paint: {
+          'circle-color': {
+            property: 'capacity',
+            stops: [
+              [120, '#feebe2'],
+              [150, '#fbb4b9'],
+              [820, '#f768a1'],
+              [1890, '#c51b8a'],
+              [2750, '#7a0177'],
+            ],
+          },
+          'circle-radius': {
+            property: 'capacity',
+            stops: [
+              [{ zoom: 12, value: 120 }, 10],
+              [{ zoom: 12, value: 150 }, 20],
+              [{ zoom: 12, value: 820 }, 30],
+              [{ zoom: 12, value: 1890 }, 40],
+              [{ zoom: 12, value: 2750 }, 50],
+              [{ zoom: 15, value: 120 }, 20],
+              [{ zoom: 15, value: 150 }, 40],
+              [{ zoom: 15, value: 820 }, 60],
+              [{ zoom: 15, value: 1890 }, 80],
+              [{ zoom: 15, value: 2750 }, 100],
+            ],
+          },
+          'circle-opacity': 0,
+          'circle-opacity-transition': {
+            duration: 800,
+            delay: 0,
+          },
+        },
+      }, 'waterway');
+
+      this.map.addLayer({
         id: 'walking',
         type: 'fill',
         source: 'isochrones',
