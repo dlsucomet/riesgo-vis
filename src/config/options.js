@@ -902,6 +902,50 @@ const filters = {
       ],
     },
   ],
+  'good-place': [
+    {
+      hasAll: false,
+      value: 'suitabilityYear',
+      label: 'Suitability Return Period',
+      onChange: 'updateSuitabilityYear',
+      options: [
+        {
+          label: '5-year',
+          value: 'mcda005yrs',
+        },
+        {
+          label: '25-year',
+          value: 'mcda025yrs',
+        },
+        {
+          label: '100-year',
+          value: 'mcda100yrs',
+        },
+      ],
+    },
+  ],
+  conclusion: [
+    {
+      hasAll: false,
+      value: 'suitabilityYear',
+      label: 'Suitability Return Period',
+      onChange: 'updateSuitabilityYear',
+      options: [
+        {
+          label: '5-year',
+          value: 'mcda005yrs',
+        },
+        {
+          label: '25-year',
+          value: 'mcda025yrs',
+        },
+        {
+          label: '100-year',
+          value: 'mcda100yrs',
+        },
+      ],
+    },
+  ],
 };
 
 const legendOptions = {
@@ -927,7 +971,7 @@ const legendOptions = {
     range: false,
   },
   population: {
-    name: 'Population',
+    name: 'Population (per pixel) (40 sqm)',
     colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
     min: 13,
     max: 24,
@@ -936,8 +980,8 @@ const legendOptions = {
   radius: {
     name: 'Population Coverage',
     colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
-    min: 5700,
-    max: 13900,
+    min: '5,700',
+    max: '13,900',
     range: true,
   },
   suitability: {
@@ -957,6 +1001,8 @@ const chapterLayers = {
   population: ['population'],
   coverage: ['radius'],
   suitability: ['suitability'],
+  'good-place': ['suitability'],
+  conclusion: ['suitability'],
 };
 
 const floodStops = [
