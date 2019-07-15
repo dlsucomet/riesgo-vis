@@ -121,11 +121,12 @@ evac %>%
   theme_tufte(base_family = "Avenir", ticks = FALSE) +
   theme(panel.background = element_rect(fill = "transparent",colour = NA),
         plot.background = element_rect(fill = "transparent",colour = NA),
-        axis.text = element_text(size = 11, colour = "black")) +
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
   labs(x = "",
        y = "Number of evacuation centers")
 
-ggsave("assets/evac_centers.png", width=6, height=3, bg = "transparent")
+ggsave("assets/evac_centers.png", width=6, height=2, bg = "transparent")
 ```
 
 ## Population Exposed
