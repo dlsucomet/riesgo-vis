@@ -78,7 +78,7 @@ export default class Panel extends React.Component {
             Acting as its lifeblood, many of Marikina's residential subdivisions, commercial buildings and critical health and education facilities have been built near the river. With continuous developments around it coupled with the constant threat of flooding, Marikina remains a focus of the national government’s efforts for flood control and disaster management (<i>Source: <a href="https://en.wikipedia.org/wiki/Marikina_River" target="_blank">Wikipedia</a></i>).
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/buildings.png" alt="Distribution of buildings in Marikina"></img>
         </section>
         <section id="typhoon">
           <Typography variant="h3">T.S. Ondoy</Typography>
@@ -106,7 +106,7 @@ export default class Panel extends React.Component {
             First, let’s look at what the current evacuation centers are like. Like most cities in the Philippines, Marikina converts its elementary schools, high schools and covered basketball courts into temporary shelters during typhoons.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/evac_centers.png" alt="Distribution of buildings in Marikina"></img>
           <br></br>
           <Typography>
             While these buildings might seem practical for a few days of stay, there are always concerns whether there is <span class="highlight">enough space and provisions for privacy, proper sanitation and healthcare</span>. This is especially true for evacuees who cannot easily return to their homes and would require further recovery assistance.
@@ -118,7 +118,7 @@ export default class Panel extends React.Component {
             Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span>
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/pop_hazard.png" alt="Distribution of exposed population per return period"></img>
           <br></br>
           <Typography>
             If we look at the flood hazard for a 5-year return period, around <span class="highlight">47% of the population are exposed to high and medium hazards</span>, which is already a sizeable number of people. This percentage jumps to <span class="highlight">65%</span> and <span class="highlight">69%</span> of the population for the 25- and 100-year return periods, respectively.
@@ -130,7 +130,7 @@ export default class Panel extends React.Component {
             If we draw 400 m circles around each evacuation center, the map shows how many people can reach them within an acceptable walking distance. What do these mean? We can consider these as the ideal number of people that each evacuation center should be able to shelter in times of disaster. Currently, 86% of the population are in close proximity to at least one evacuation center.
           </Typography>
           <br></br>
-          <img class="figure" src="../../data/assets/precip.png" alt="Distribution of buildings in Marikina"></img>
+          <img class="figure" src="../../data/assets/ideal_coverage.png" alt="Population covered within 400 meters"></img>
           <br></br>
           <Typography>
             There are also many evacuation centers that overlap ideal coverage, which can be a good thing for citizens. There are around 35% of the population with at least two evacuation centers nearby, and 3% of them are near to four shelters. And if we look at the map, these cluster of evacuation centers are nicely located in relatively population dense areas.
