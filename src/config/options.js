@@ -516,6 +516,10 @@ const chapters = {
         opacity: 0,
       },
       {
+        id: 'capacity',
+        opacity: 0,
+      },
+      {
         id: 'walking',
         opacity: 0.3,
       },
@@ -578,6 +582,10 @@ const chapters = {
       },
       {
         id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capcity',
         opacity: 0,
       },
       {
@@ -646,6 +654,10 @@ const chapters = {
         opacity: 0,
       },
       {
+        id: 'capcity',
+        opacity: 0,
+      },
+      {
         id: 'walking',
         opacity: 0,
       },
@@ -708,6 +720,10 @@ const chapters = {
       },
       {
         id: 'radius',
+        opacity: 0,
+      },
+      {
+        id: 'capcity',
         opacity: 0,
       },
       {
@@ -1048,9 +1064,24 @@ const legendOptions = {
   },
   flood: {
     name: 'Flood Hazard',
-    colors: ['#ffffb2', '#fecc5c', '#fd8d3c', '#e31a1c'],
-    min: 'Very Low',
-    max: 'High',
+    colors: [
+      {
+        label: 'Marginal',
+        color: '#ffffb2',
+      },
+      {
+        label: 'Low',
+        color: '#fecc5c',
+      },
+      {
+        label: 'Medium',
+        color: '#fd8d3c',
+      },
+      {
+        label: 'High',
+        color: '#e31a1c',
+      },
+    ],
     range: false,
   },
   population: {
@@ -1067,11 +1098,37 @@ const legendOptions = {
     max: '13,900',
     range: true,
   },
+  capacity: {
+    name: 'Estimated Capacity',
+    colors: ['#feebe2', '#fbb4b9', '#f768a1', '#c51b8a', '#7a0177'],
+    min: '120',
+    max: '2,750',
+    range: true,
+  },
   suitability: {
     name: 'Suitability',
-    colors: ['#000000', '#b2182b', '#ef8a62', '#67a9cf', '#2166ac'],
-    min: 'Unsafe',
-    max: 'Very High',
+    colors: [
+      {
+        label: 'Unsafe',
+        color: '#000000',
+      },
+      {
+        label: 'Very Low',
+        color: '#b2182b',
+      },
+      {
+        label: 'Low',
+        color: '#ef8a62',
+      },
+      {
+        label: 'High',
+        color: '#67a9cf',
+      },
+      {
+        label: 'Very High',
+        color: '#2166ac',
+      },
+    ],
     range: false,
   },
 };
@@ -1083,6 +1140,7 @@ const chapterLayers = {
   evacuation: ['flood', 'landelevation'],
   population: ['population'],
   coverage: ['radius'],
+  capacity: ['capacity'],
   suitability: ['suitability'],
   'good-place': ['suitability'],
   conclusion: ['suitability'],

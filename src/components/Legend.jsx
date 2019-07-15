@@ -63,12 +63,46 @@ const styles = theme => ({
       float: 'right',
     },
   },
-
-  // .continuous {
-  //   /*display: table-row;*/
-  //   background: linear-gradient(to right, #ffffcc, #c7e9b4, #7fcdbb,
-  //   #41b6c4, #1d91c0, #225ea8, #0c2c84);
-  // }
+  category: {
+    position: 'fixed',
+    bottom: theme.spacing.unit * 3,
+    left: '30%',
+    marginLeft: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
+    zIndex: 105,
+    width: '120px',
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+    '& ul': {
+      padding: 0,
+      margin: 0,
+      listStyle: 'none',
+    },
+    '& ul li': {
+      padding: 0,
+      margin: 0,
+      fontSize: '10px',
+      color: '#666',
+      fontWeight: 700,
+      textTransform: 'uppercase',
+      lineHeight: 'normal',
+    },
+    '& li span': {
+      width: '18px',
+      height: '18px',
+      borderRadius: '3px',
+      border: '1px solid #b3b3b3',
+      display: 'inline-block',
+    },
+  },
+  categorylabel: {
+    display: 'inline-block',
+    verticalAlign: 'top',
+    lineHeight: '22px',
+    paddingLeft: '10px',
+  }
 });
 
 const Legend = (props) => {
@@ -86,33 +120,48 @@ const Legend = (props) => {
     legend = legendOptions[layers[0]];
   }
 
-  return (
-    <Paper className={classes.container}>
-      <Typography variant="caption" className={classes.labelStyle}>{legend.name}</Typography>
-      <ul>
-        <li className="min">
-          <Typography variant="overline">
-            {legend.range && <span>&lt; </span>}
-            {legend.min}
-          </Typography>
-        </li>
-        <li className="max">
-          <Typography variant="overline">
-            {legend.max}
-            {legend.range && <span>+</span>}
-          </Typography>
-        </li>
-        <li className="graph">
-          <div className="colors">
-            {legend.range && <div style={{ width: '100%', background: `linear-gradient(to right, ${legend.colors.join(',')})` }} />}
-            {!legend.range && legend.colors.map(color => (
-              <div className="quartile" style={{ backgroundColor: color, width: `${100 / legend.colors.length}%` }} />
-            ))}
-          </div>
-        </li>
-      </ul>
-    </Paper>
-  );
+  if (legend.range) {
+    return (
+      <Paper className={classes.container}>
+        <Typography variant="caption" className={classes.labelStyle}>{legend.name}</Typography>
+        <ul>
+          <li className="min">
+            <Typography variant="overline">
+              {legend.range && <span>&lt; </span>}
+              {legend.min}
+            </Typography>
+          </li>
+          <li className="max">
+            <Typography variant="overline">
+              {legend.max}
+              {legend.range && <span>+</span>}
+            </Typography>
+          </li>
+          <li className="graph">
+            <div className="colors">
+              <div style={{ width: '100%', background: `linear-gradient(to right, ${legend.colors.join(',')})` }} />
+            </div>
+          </li>
+        </ul>
+      </Paper>
+    );
+  }
+
+  if (!legend.range) {
+    return (
+      <Paper className={classes.category}>
+        <Typography variant="caption" className={classes.labelStyle}>{legend.name}</Typography>
+        <ul>
+          {legend.colors.map(color => (
+            <li>
+              <span style={{ backgroundColor: color.color }} />
+              <Typography className={classes.categorylabel}>{color.label}</Typography>
+            </li>
+          ))}
+        </ul>
+      </Paper>
+    )
+  }
 };
 
 Legend.propTypes = {
