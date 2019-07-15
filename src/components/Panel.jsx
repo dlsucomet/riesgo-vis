@@ -157,6 +157,10 @@ export default class Panel extends React.Component {
           <Typography>
             We also looked into the accessibility of the evacuation centers by generating isochrones that represent <span class="highlight">areas that can be reached from 5 to 30 minutes</span>. It can be seen from the map that all evacuation centers can already be reached by the majority of the population in <span class="highlight">15 minutes</span>, which is beneficial for urgent evacuations at the onset of a heavy downpour. However, these isochrones cannot account for the effects of flooding on one’s walking speed if evacuations will happen during a deluge.
           </Typography>
+          <br></br>
+          <img class="figure" src="../../data/assets/accessibility.jpg" alt="People walking on flooded roads"></img>
+          <br></br>
+          <i>(Photo credit: <a href="http://archive.boston.com/bigpicture/2009/09/typhoon_ketsana_ondoy.html" target="_blank">boston.com</a>)</i>
         </section>
         <section id="suitability">
           <Typography variant="h3">Suitability</Typography>

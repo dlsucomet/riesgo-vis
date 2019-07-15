@@ -157,7 +157,8 @@ pop_hazard %>%
         axis.text = element_text(size = 11, colour = "black"),
         legend.position = "top",
         legend.title = element_blank(),
-        legend.text = element_text(margin = margin(l = 2, r = 5), hjust = 0)) +
+        legend.text = element_text(margin = margin(l = 2, r = 5), hjust = 0),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
   labs(x = "",
        y = "Population exposed to hazard")
 
@@ -187,7 +188,8 @@ evac %>%
   theme_tufte(base_family = "Avenir", ticks = FALSE) +
   theme(panel.background = element_rect(fill = "transparent",colour = NA),
         plot.background = element_rect(fill = "transparent",colour = NA),
-        axis.text = element_text(size = 11, colour = "black")) +
+        axis.text = element_text(size = 11, colour = "black"),
+        axis.title.x = element_text(margin = margin(t = 10), hjust = 0.5)) +
   labs(x = "",
        y = "Population covered within 400 meters")
 
