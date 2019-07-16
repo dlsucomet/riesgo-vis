@@ -128,7 +128,7 @@ export default class Panel extends React.Component {
         <section id="population">
           <Typography variant="h3">Population</Typography>
           <Typography>
-            Marikina City has 450,741 citizens. <span class="highlight">How much of the population is exposed to hazard?</span>
+            Marikina City has 450,741 citizens. <span class="highlight">How many of them are exposed to flooding hazard?</span>
           </Typography>
           <br></br>
           <img class="figure" src={popHazard} alt="Distribution of exposed population per return period"></img>
@@ -138,7 +138,7 @@ export default class Panel extends React.Component {
           </Typography>
           <br></br>
           <Typography>
-            <span class="highlight">Can these people easily to a nearby evacuation center?</span> And if they can, <span class="highlight">will there be enough space and other provisions?</span>
+            <span class="highlight">Can these people easily go to a nearby evacuation center?</span> And if they can, <span class="highlight">will there be enough space and other provisions?</span>
           </Typography>
         </section>
         <section id="coverage">
@@ -156,13 +156,13 @@ export default class Panel extends React.Component {
         <section id="capacity">
           <Typography variant="h3">Estimated Capacity</Typography>
           <Typography>
-            Now that we know the ideal number of people that each evacuation should serve, <span class="highlight">how many can they actually fit?</span> We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (<span class="highlight">5 sqm of space per person</span>). All locations had an estimated capacity <span class="highlight">way below their ideal coverage</span>, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of <span class="highlight">10,416 people</span> that will underserved per evacuation center.
+            Now that we know the ideal number of people that each evacuation center should serve, <span class="highlight">how many can they actually fit?</span> We got the total floor areas and computed for the estimated number of people that can comfortably stay in these shelters (<span class="highlight">5 sqm of space per person</span>). All locations had an estimated capacity <span class="highlight">way below their ideal coverage</span>, which means there won’t be enough space if everyone within close proximity have to evacuate. On average, there is a sizeable difference of around <span class="highlight">10,416 people</span> that will be underserved per evacuation center.
           </Typography>
           <br></br>
           <img class="figure" src={sampaguita} alt="Sampaguita Gym in Marikina"></img>
           <br></br>
           <Typography>
-            To illustrate some of these differences, <span class="highlight">Sampaguita Gym</span> has an estimated capacity of only <span class="highlight">123 people</span> evacuating and staying comfortably in its vicinity. However, because of the dense population within close proximity, it needs to serve <span class="highlight">168 times more people</span>. While Malanday National HS, Malanday Elementary School and Filipinas Gym are other nearby options, they too are well below their capacities, with <span class="highlight">Filipinas Gym</span> expected to shelter <span class="highlight">127 times more</span>. <i>(Photo credit: Google Streetview)</i>
+            To illustrate some of these differences, here is <span class="highlight">Sampaguita Gym</span> with an estimated capacity of only <span class="highlight">123 people</span> evacuating and staying comfortably within its vicinity. However, because of the dense population within close proximity, it needs to serve <span class="highlight">168 times more people</span>. While Malanday National HS, Malanday Elementary School and Filipinas Gym are other nearby options, they too are well below their capacities, with <span class="highlight">Filipinas Gym</span> expected to shelter <span class="highlight">127 times more</span>. <i>(Photo credit: Google Streetview)</i>
           </Typography>
         </section>
         <section id="accessibility">
@@ -206,11 +206,11 @@ export default class Panel extends React.Component {
         <section id="conclusion">
           <Typography variant="h3">Moving Forward</Typography>
           <Typography>
-            In this analysis of Marikina's evacuation centers, we have illustrated how unsuitable many of them are in terms of their <span class="highlight">medium to high exposure to flooding</span> and <span class="highlight">incapacity to serve nearby residents</span>. We then tried to look into the the suitability of other areas, hoping to find <span class="highlight">viable locations for new evacuation centers</span>. We found Marikina Heights as the most viable location for evacuation centers. But anything built there cannot serve other densely populated areas. 
+            In this analysis of Marikina's evacuation centers, we have illustrated how unsuitable many of them are in terms of their <span class="highlight">medium to high exposure to flooding</span> and <span class="highlight">incapacity to serve nearby residents</span>. We then tried to look into the suitability of other areas, hoping to find <span class="highlight">viable locations for new evacuation centers</span>. We found Marikina Heights as the most viable location for evacuation centers. But anything built there cannot serve other densely populated areas. 
           </Typography>
           <br></br>
           <Typography>
-            What about other suitable locations but are already built up land? There is always the option of finding existing buildings other than schools and covered courts that can also serve as shelters. However, we highly suggest that Marikina explore <span class="highlight">developing multipurpose buildings</span> like those built in Singapore to account for the lack of space in many residential areas. 
+            What about other suitable locations that are already built up land? There is always the option of finding existing buildings other than schools and covered courts that can also serve as shelters. However, we highly suggest that Marikina explore <span class="highlight">developing multipurpose buildings</span> like those built in Singapore to account for the lack of space in many residential areas. 
           </Typography>
           <br></br>
           <Typography> 
@@ -219,7 +219,7 @@ export default class Panel extends React.Component {
           <br></br>
           <Typography variant="h6">THANK YOU!</Typography>
           <Typography>
-            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> and <span class="highlight">Unisse C. Chua</span>, both from the Center for Complexity and Emerging Technologies in De La Salle University, Philippines. This was also done with the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
+            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> and <span class="highlight">Unisse C. Chua</span>, both from the Center for Complexity and Emerging Technologies in De La Salle University, Philippines. This wouldn't be possible without the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
           </Typography>
         </section>
       </div>
