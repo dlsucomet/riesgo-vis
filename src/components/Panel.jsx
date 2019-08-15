@@ -219,7 +219,7 @@ export default class Panel extends React.Component {
           <br></br>
           <Typography variant="h6">THANK YOU!</Typography>
           <Typography>
-            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> and <span class="highlight">Unisse C. Chua</span>, both from the Center for Complexity and Emerging Technologies in De La Salle University, Philippines. This wouldn't be possible without the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
+            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> (<a href="https://www.fun.ac.jp/en/" target="_blank">Future University Hakodate</a> &amp; <a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a>) and <span class="highlight">Unisse C. Chua</span> (<a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a>). They are both from the <a href="https://comet.dlsu.edu.ph" target="_blank">Center for Complexity and Emerging Technologies</a> in De La Salle University, Philippines. This wouldn't be possible without the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
           </Typography>
         </section>
       </div>
