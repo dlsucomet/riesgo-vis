@@ -173,7 +173,7 @@ export default class Panel extends React.Component {
           <br></br>
           <img class="figure" src={accessibility} alt="People walking on flooded roads"></img>
           <br></br>
-          <i>(Photo credit: <a href="http://archive.boston.com/bigpicture/2009/09/typhoon_ketsana_ondoy.html" target="_blank">boston.com</a>)</i>
+          <i>(Photo credit: <a class="fig-caption" href="http://archive.boston.com/bigpicture/2009/09/typhoon_ketsana_ondoy.html" target="_blank">boston.com</a>)</i>
         </section>
         <section id="suitability">
           <Typography variant="h3">Suitability</Typography>
@@ -217,9 +217,19 @@ export default class Panel extends React.Component {
             While Marikina can be lauded in the herculean task of effectively instituting information campaigns and building flood control infrastructures, it is also important that they look into critical infrastructures that are heavily utilized at the onset, during and soon after a typhoon or flooding. Although these are temporary relief, evacuees' experiences in these shelters will definitely set the tone for their successful return and recovery.
           </Typography>
           <br></br>
-          <Typography variant="h6">THANK YOU!</Typography>
+          <Typography variant="h6">WINNINGS</Typography>
           <Typography>
-            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> (<a href="https://www.fun.ac.jp/en/" target="_blank">Future University Hakodate</a> &amp; <a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a>) and <span class="highlight">Unisse C. Chua</span> (<a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a>). They are both from the <a href="https://comet.dlsu.edu.ph" target="_blank">Center for Complexity and Emerging Technologies</a> in De La Salle University, Philippines. This wouldn't be possible without the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
+            This interactive "scrollytelling" won <span class="highlight">GRAND PRIZE</span>🏆 and the <span class="highlight">Best Interaction Design</span>🎖 award for the <span class="highlight">#VizRisk Challenge</span>! Read the announcement of winners from the <a href="https://blogs.worldbank.org/opendata/visualizing-risk-announcing-winners-vizrisk-2019-challenge" target="_blank">World Bank Group</a>.
+          </Typography>
+          <br></br>
+          <Typography variant="h6">THE TEAM</Typography>
+          <Typography>
+            This is the proud work of <span class="highlight">Briane Paul V. Samson</span> from <a href="https://www.fun.ac.jp/en/" target="_blank">Future University Hakodate</a> &amp; <a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a> and <span class="highlight">Unisse C. Chua</span> from <a href="https://www.dlsu.edu.ph/" target="_blank">De La Salle University</a>. They are both from the <a href="https://comet.dlsu.edu.ph" target="_blank">Center for Complexity and Emerging Technologies</a> in De La Salle University, Philippines. This wouldn't be possible without the help of Winfred Villaluna, Darlene Marpa, Tyler Venzon and Benson Polican in collecting and processing parts of the data.
+          </Typography>
+          <br></br>
+          <Typography variant="h6">CODE</Typography>
+          <Typography>
+            If you are interested in replicating our work, you can clone our  <a href="https://github.com/dlsucomet/riesgo-vis" target="_blank">GitHub repository</a>. 
           </Typography>
         </section>
       </div>

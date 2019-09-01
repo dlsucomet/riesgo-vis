@@ -26,6 +26,15 @@ section:last-child {
   margin-bottom: 200px;
 }
 
+a {
+  text-decoration: none;
+  color: olivedrab;
+}
+
+.fig-caption {
+  text-decoration: none;
+}
+
 .mapLegend {
   position: absolute;
   bottom: 25px;
